@@ -1,0 +1,72 @@
+product categories:
+|-SmartPhones
+|-Laptops
+|-Wearables
+|-Displays
+|	|-TVs
+|	|-Monitors
+|	|-Projectors
+|-AudioDevices
+|	|-Headphones/Earbuds
+|	|-SoundBars/Speakers
+|	|-HomeTheares
+|-ComputerAccessories
+	|-Keyboards
+	|-Mouse
+	|-Printers
+	|-others
+
+Data Storage:
+User:
+|-id(unique)
+|-Name
+|-Address(list)
+|-E-Mail
+|-Phoneno.
+|-Password
+|-OrderHistory(list)
+|-CartItems(list)
+Orders:
+|-id(unique)
+|-Userid
+|-Address
+|-NetPrice
+|-Status{Processing--->Dispatched--->about_to_dilever--->Dilevered}
+|-DateTime(list: order on, delivered on)
+|-Productids(list)
+Products:
+|-Productid(unique)
+|-Title
+|-Price
+|-Images
+|-Rating
+|-Discription
+|-BrandName
+|-Category
+|-Availability
+PruductReviews:
+|-Productid
+|-Customerid
+|-Rating
+|-Comment
+|-Orderid
+|-ReviewDateTime
+
+color scheme:
+#282d2a-for dark background
+#27b758-highlight
+#9cccc4-accent
+
+Pages:
+|-Home(showcasing the store , sale/discounts)
+|-Products list/search result/explore
+|-Product discriptions and details(showcase everything about the product)
+|-Cart(showcase the products added in the cart and checkout)
+|-Signin/Signup(authentication page)
+|-Payment(where user will enter the payment details)
+|-Profile Dashboard(where user will manage its address, track his orders)
+|-404-error
+
+fonts used
+|-Logo-Agile
+

@@ -1,0 +1,280 @@
+.auth {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.auth__logo-link {
+  text-decoration: none;
+  outline: none;
+}
+.auth__logo {
+  margin-top: 100px;
+  font-family: "AgileCustom", sans-serif;
+  font-size: 1.8rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  letter-spacing: 1px;
+  color: #27b758;
+  transform: scale(0.9);
+  transition: all 0.3s;
+}
+.auth__logo:hover {
+  transform: scale(1);
+  transition: all 0.2s;
+  color: #9cccc4;
+  text-shadow: 0 0 2.5px #27b758, /* soft glow */ 0 0 5px rgba(39, 183, 88, 0.7);
+  cursor: pointer;
+}
+.auth__container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgba(11, 20, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0px 4px 0 rgba(39, 183, 88, 0.15);
+  z-index: 100;
+  top: 0;
+  border: 1px solid #353535;
+  color: #9cccc4;
+}
+.auth__form {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #353535;
+  color: #9cccc4;
+}
+.auth__input-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: scale(0.95);
+  transition: all 0.3s;
+}
+.auth__input-group:hover,
+.auth__input-group:focus {
+  transform: scale(1);
+  transition: all 0.3s;
+}
+.auth__input-email {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #111111;
+  color: #9cccc4;
+  padding: 10px 15px;
+  border-top: 1px solid #353535;
+  border-left: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+  border-right: none; /* no right border for rounded effect */
+  border-radius: 22.9px 0px 0px 22.9px;
+  transition: all 0.3s;
+}
+.auth__input-email::placeholder {
+  color: #9cccc4;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  transition: color 0.3s;
+}
+.auth__input-email:focus::placeholder {
+  color: #27b758;
+  opacity: 1;
+}
+.auth__icon-email {
+  height: 32px;
+  width: 32px;
+  padding: 2px 10px;
+  background-color: #111111;
+  border-top: 1px solid #353535;
+  border-right: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+  border-left: none;
+  border-radius: 0px 22.9px 22.9px 0px;
+  transition: all 0.3s;
+}
+.auth__input-group:hover .auth__input-email,
+.auth__input-group:hover .auth__icon-email {
+  background-color: #222;
+  border-color: #27b758;
+}
+.auth__input-group:focus-within .auth__input-email,
+.auth__input-group:focus-within .auth__icon-email {
+  background-color: #222;
+  border-color: #27b758;
+}
+.auth__input-email:focus,
+.auth__input-email:active {
+  outline: none;
+}
+.auth__input-password {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #111111;
+  color: #9cccc4;
+  padding: 10px 15px;
+  border-top: 1px solid #353535;
+  border-left: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+  border-right: none;
+  border-radius: 22.9px 0px 0px 22.9px;
+  transition: all 0.3s;
+}
+.auth__input-password::placeholder {
+  color: #9cccc4;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  transition: color 0.3s;
+}
+.auth__input-password:focus::placeholder {
+  color: #27b758;
+  opacity: 1;
+}
+.auth__icon-password {
+  height: 32px;
+  width: 32px;
+  padding: 2px 10px;
+  background-color: #111111;
+  border-top: 1px solid #353535;
+  border-right: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+  border-left: none;
+  border-radius: 0px 22.9px 22.9px 0px;
+  transition: all 0.3s;
+}
+.auth__input-group:hover .auth__input-password,
+.auth__input-group:hover .auth__icon-password {
+  background-color: #222;
+  border-color: #27b758;
+}
+.auth__input-group:focus-within .auth__input-password,
+.auth__input-group:focus-within .auth__icon-password {
+  background-color: #222;
+  border-color: #27b758;
+}
+.auth__input-password:focus,
+.auth__input-password:active {
+  outline: none;
+}
+.auth__remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 50%;
+  margin: 18px auto 0 auto;
+  color: #9cccc4;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth__checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #353535;
+  border-radius: 6px;
+  background: #111;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.auth__checkbox:checked {
+  border-color: #27b758;
+  background: #222;
+}
+
+.auth__checkbox:checked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 2px;
+  top: -2px;
+  width: 8px;
+  height: 14px;
+  border: solid #27b758;
+  border-width: 0 3px 3px 0;
+  border-radius: 1px;
+  transform: rotate(45deg) scale(0.8);
+}
+
+.auth__checkbox:focus {
+  box-shadow: 0 0 0 2px #27b75855;
+  border-color: #27b758;
+}
+.auth__remember-me:hover span,
+.auth__checkbox:focus + span {
+  color: #27b758;
+  transition: color 0.2s;
+}
+.auth__sign-in-btn {
+  width: 80%;
+  margin-top: 22px;
+  padding: 7px 85px 7px 85px;
+  background: #27b758;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 22.9px;
+  cursor: pointer;
+  border: 4px solid #27b758;
+  transition: all 0.3s;
+}
+.auth__sign-in-btn:hover,
+.auth__sign-in-btn:focus {
+  background: #9cccc4;
+  transform: scale(1.03);
+  transition: all 0.3s;
+}
+.auth__signup-link {
+  margin-top: 15px;
+  text-align: center;
+  color: #9cccc4;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  margin-bottom: 22px;
+}
+
+.auth__signup-link-text {
+  color: #27b758;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.auth__signup-link-text:hover,
+.auth__signup-link-text:focus {
+  color: #9cccc4;
+  text-shadow: 0 0 4px #27b75888;
+  outline: none;
+}
