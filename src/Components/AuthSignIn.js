@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
-import "./Auth.css";
+import "./AuthSignIn.css";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import mail from "../assets/icons/mail.json";
 import lock from "../assets/icons/lock.json";
 
-function Auth() {
+function AuthSignIn() {
   const mailLottieRef = useRef();
   const [mailFocused, setMailFocused] = useState(false);
 
@@ -60,22 +60,24 @@ function Auth() {
   const [remember, setRemember] = useState(false);
 
   return (
-    <div className="auth">
-      <Link to="/" className="auth__logo-link">
-        <div className="auth__logo" tabIndex={0} aria-label="Home">
+    <div className="authSignIn">
+      <Link to="/" className="authSignIn__logo-link">
+        <div className="authSignIn__logo" tabIndex={0} aria-label="Home">
           <h1>Kartigo</h1>
         </div>
       </Link>
-      <div className="auth__container">
+      <div className="authSignIn__container">
         <h1>Login</h1>
-        <form className="auth__form">
+        <form className="authSignIn__form">
           <div
-            className={`auth__input-group${mailFocused ? " focused" : ""}`}
+            className={`authSignIn__input-group${
+              mailFocused ? " focused" : ""
+            }`}
             onMouseEnter={handleMailMouseEnter}
             onMouseLeave={handleMailMouseLeave}
           >
             <input
-              className="auth__input-email"
+              className="authSignIn__input-email"
               type="email"
               id="email"
               name="email"
@@ -87,7 +89,7 @@ function Auth() {
             />
 
             <Lottie
-              className="auth__icon-email"
+              className="authSignIn__icon-email"
               lottieRef={mailLottieRef}
               animationData={mail}
               loop={false}
@@ -96,12 +98,14 @@ function Auth() {
           </div>
 
           <div
-            className={`auth__input-group${lockFocused ? " focused" : ""}`}
+            className={`authSignIn__input-group${
+              lockFocused ? " focused" : ""
+            }`}
             onMouseEnter={handleLockMouseEnter}
             onMouseLeave={handleLockMouseLeave}
           >
             <input
-              className="auth__input-password"
+              className="authSignIn__input-password"
               type="password"
               id="password"
               name="password"
@@ -113,7 +117,7 @@ function Auth() {
             />
 
             <Lottie
-              className="auth__icon-password"
+              className="authSignIn__icon-password"
               lottieRef={lockLottieRef}
               animationData={lock}
               loop={false}
@@ -123,21 +127,21 @@ function Auth() {
 
           {/* Sign In Button */}
         </form>
-        <label className="auth__remember-me">
+        <label className="authSignIn__remember-me">
           <input
             type="checkbox"
-            className="auth__checkbox"
+            className="authSignIn__checkbox"
             checked={remember}
             onChange={() => setRemember((prev) => !prev)}
           />
           <span>Remember me</span>
         </label>
-        <button type="submit" className="auth__sign-in-btn">
+        <button type="submit" className="authSignIn__sign-in-btn">
           Sign In
         </button>
-        <div className="auth__signup-link">
+        <div className="authSignIn__signup-link">
           Don&apos;t have an account?{" "}
-          <Link to="/signup" className="auth__signup-link-text">
+          <Link to="/auth/signup" className="authSignIn__signup-link-text">
             Sign up
           </Link>
         </div>
@@ -146,4 +150,4 @@ function Auth() {
   );
 }
 
-export default Auth;
+export default AuthSignIn;

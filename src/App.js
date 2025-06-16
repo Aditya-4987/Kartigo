@@ -1,5 +1,6 @@
 import "./App.css";
-import Auth from "./Components/Auth";
+import AuthSignIn from "./Components/AuthSignIn";
+import AuthSignUp from "./Components/AuthSignUp";
 import Header from "./Components/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -17,10 +18,18 @@ function App() {
             }
           />
           <Route
-            path="/auth"
+            path="/auth/signin"
             element={
               <div>
-                <Auth />
+                <AuthSignIn />
+              </div>
+            }
+          />
+          <Route
+            path="/auth/signup"
+            element={
+              <div>
+                <AuthSignUp />
               </div>
             }
           />

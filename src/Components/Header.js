@@ -110,7 +110,7 @@ function Header() {
           className="header__search__icon"
         />
       </div>
-      <Link to="/auth" className="header__auth-link">
+      <Link to="/auth/signin" className="header__auth-link">
         <div
           className="header__profile"
           tabIndex={0}
