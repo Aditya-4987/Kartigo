@@ -324,3 +324,66 @@
 .authSignUp__input-name:active {
   outline: none;
 }
+
+/* Add these media queries at the end of your AuthSignUp.css file */
+
+@media (max-width: 500px) {
+  .authSignUp {
+    padding: 20px 15px;
+  }
+  
+  .authSignUp__logo {
+    margin-top: 30px;
+    font-size: 1.5rem;
+  }
+  
+  .authSignUp__container {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  .authSignUp__form {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .authSignUp__input-group {
+    transform: none;
+  }
+  
+  .authSignUp__input-group:hover,
+  .authSignUp__input-group:focus {
+    transform: none;
+  }
+  
+  .authSignUp__sign-in-btn {
+    width: 100%;
+    padding: 7px 0;
+  }
+  
+  .authSignUp__remember-me {
+    width: 70%;
+  }
+}
+
+@media (max-width: 350px) {
+  .authSignUp__logo {
+    margin-top: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .authSignUp__container {
+    padding: 10px;
+  }
+  
+  .authSignUp__form {
+    padding: 10px;
+  }
+  
+  .authSignUp__input-email,
+  .authSignUp__input-password,
+  .authSignUp__input-name {
+    font-size: 14px;
+  }
+}

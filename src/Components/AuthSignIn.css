@@ -278,3 +278,64 @@
   text-shadow: 0 0 4px #27b75888;
   outline: none;
 }
+
+/* Add these media queries at the end of your AuthSignIn.css file */
+
+@media (max-width: 500px) {
+  .authSignIn {
+    padding: 20px 15px;
+  }
+
+  .authSignIn__logo {
+    margin-top: 60px;
+    font-size: 1.5rem;
+  }
+
+  .authSignIn__container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .authSignIn__form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .authSignIn__input-group {
+    transform: none;
+  }
+
+  .authSignIn__input-group:hover,
+  .authSignIn__input-group:focus {
+    transform: none;
+  }
+
+  .authSignIn__sign-in-btn {
+    width: 100%;
+    padding: 7px 0;
+  }
+
+  .authSignIn__remember-me {
+    width: 70%;
+  }
+}
+
+@media (max-width: 350px) {
+  .authSignIn__logo {
+    margin-top: 40px;
+    font-size: 1.3rem;
+  }
+
+  .authSignIn__container {
+    padding: 10px;
+  }
+
+  .authSignIn__form {
+    padding: 10px;
+  }
+
+  .authSignIn__input-email,
+  .authSignIn__input-password {
+    font-size: 14px;
+  }
+}

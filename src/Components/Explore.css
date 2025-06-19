@@ -1,0 +1,196 @@
+.explore {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Changed from center to align properly */
+  align-items: flex-start; /* Changed from center to align properly */
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.explore-sidebar {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+  width: 100%;
+  max-width: 20%;
+  height: auto; /* Changed from 100% to auto */
+  padding: 15px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgba(11, 20, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0px 4px 0 rgba(39, 183, 88, 0.15);
+  z-index: 100;
+  border: 1px solid #353535;
+  color: #9cccc4;
+  position: sticky;
+  top: 100px; /* This makes it stick 10px from the top */
+  align-self: flex-start; /* Ensures it stays at the top */
+  max-height: calc(100vh - 20px); /* Limits height to viewport minus margins */
+  overflow-y: auto; /* Allows scrolling within sidebar if content is too tall */
+}
+.explore-sidebar-product-catgories {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Add consistent spacing between items */
+  border-radius: 10px;
+  background: rgba(11, 20, 17, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0px 4px 0 rgba(39, 183, 88, 0.15);
+}
+
+.categories-heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #9cccc4;
+  margin: 0 0 8px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #353535;
+}
+
+.sidebar-checkbox-span {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Reduced from 8px */
+  margin: 0; /* Adjusted from 1px 0 */
+  color: #9cccc4;
+  font-size: 0.85rem; /* Reduced from 0.9rem */
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.sidebar-checkbox {
+  appearance: none;
+  min-width: 16px; /* Reduced from 18px */
+  height: 16px; /* Reduced from 18px */
+  border: 2px solid #353535;
+  border-radius: 5px; /* Slightly smaller radius */
+  background: #111;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+}
+
+.sidebar-checkbox:checked {
+  border-color: #27b758;
+  background: #222;
+}
+
+.sidebar-checkbox:checked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 3.5px; /* Adjusted from 5px */
+  top: 0px; /* Adjusted from 1px */
+  width: 4px;
+  height: 8px; /* Reduced from 9px */
+  border: solid #27b758;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.sidebar-checkbox:focus {
+  box-shadow: 0 0 0 2px #27b75855;
+  border-color: #27b758;
+}
+
+/* Fix hover states */
+.sidebar-checkbox-span:hover {
+  color: #27b758;
+}
+
+.sidebar-checkbox-span:hover .sidebar-checkbox:not(:checked) {
+  border-color: #27b758;
+  background-color: rgba(39, 183, 88, 0.1);
+}
+
+.explore-content {
+  width: 100%;
+  margin-right: 10px;
+  max-width: 80%;
+  padding: 0px 10px 10px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-content: start;
+  border-radius: 10px 10px 10px 10px;
+  background: rgba(11, 20, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0px 4px 0 rgba(39, 183, 88, 0.15);
+  z-index: 1; /* Lower z-index than sidebar */
+  border: 1px solid #353535;
+  color: #9cccc4;
+}
+
+.explore-content-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #9cccc4;
+  margin: 20px;
+  width: 97%;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 3px solid #353535;
+}
+
+.explore-content-products {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Add these media queries at the end of your Explore.css file */
+
+@media (max-width: 768px) {
+  /* Assuming the explore page has a sidebar-main layout */
+  .explore__container {
+    flex-direction: column;
+  }
+
+  .explore__sidebar {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+
+  .explore__main {
+    width: 100%;
+  }
+
+  /* Make filters horizontally scrollable on mobile */
+  .explore__filters {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .explore__filters::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .explore__filters::-webkit-scrollbar-thumb {
+    background-color: #27b758;
+    border-radius: 4px;
+  }
+
+  /* If you have a filter toggle, make it visible on mobile */
+  .explore__filter-toggle {
+    display: flex;
+    margin-bottom: 10px;
+  }
+}

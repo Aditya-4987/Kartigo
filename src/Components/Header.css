@@ -10,8 +10,8 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0px 8px 0 rgba(39, 183, 88, 0.15);
-  z-index: 100;
+  box-shadow: 0 0px 20px 0 rgba(39, 183, 88, 0.15);
+  z-index: 1000;
   top: 0;
   position: sticky;
 }
@@ -186,7 +186,157 @@
   margin-right: 8px;
 }
 
+/* Menu dropdown styling */
+.header__menu-container {
+  position: relative;
+  display: flex;
+}
+
+.header__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 200px;
+  background: rgba(11, 20, 17, 0.9);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 10px rgba(39, 183, 88, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.header__dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header__dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__dropdown-item {
+  transition: background-color 0.2s;
+}
+
+.header__dropdown-item:hover {
+  background-color: rgba(39, 183, 88, 0.15);
+}
+
+.header__dropdown-item:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.header__dropdown-item:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.header__dropdown-link {
+  display: block;
+  padding: 12px 16px;
+  color: #9cccc4;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.header__dropdown-link:hover,
+.header__dropdown-link:focus {
+  color: #27b758;
+  transform: translateX(5px);
+}
+
+/* Add a subtle indicator for dropdown links */
+.header__dropdown-link span {
+  position: relative;
+}
+
+.header__dropdown-link span::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #27b758;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.header__dropdown-link:hover span::before,
+.header__dropdown-link:focus span::before {
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+  left: -12px;
+}
+
 /* Underline effect already improved in your code */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 15px;
+    margin: 5px;
+  }
+
+  .header__logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+
+  .header__logo-link {
+    margin-bottom: 5px;
+  }
+
+  .header__search {
+    width: 100%;
+    order: 3;
+  }
+
+  .header__menu-container,
+  .header__auth-link {
+    margin-top: 8px;
+  }
+
+  /* Make the dropdown menu open below the menu button properly */
+  .header__dropdown {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  /* Create a row for menu and profile */
+  .header__logo-link + div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Ensure visible elements get enough tap space */
+  .header__menu,
+  .header__profile {
+    padding: 8px 12px;
+    min-height: 40px;
+    min-width: 100px;
+    justify-content: center;
+  }
+}
 
 @media (max-width: 700px) {
   .header {

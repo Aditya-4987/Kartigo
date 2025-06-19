@@ -12,15 +12,19 @@ function Header() {
   const userLottieRef = useRef();
   const searchLottieRef = useRef();
   const [searchFocused, setSearchFocused] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Menu animation handlers
   const handleMenuMouseEnter = () => {
     menuLottieRef.current.setDirection(1);
     menuLottieRef.current.play();
+    setMenuOpen(true);
   };
+
   const handleMenuMouseLeave = () => {
     menuLottieRef.current.setDirection(-1);
     menuLottieRef.current.play();
+    setMenuOpen(false);
   };
 
   // User animation handlers
@@ -28,6 +32,7 @@ function Header() {
     userLottieRef.current.setDirection(1);
     userLottieRef.current.play();
   };
+
   const handleUserMouseLeave = () => {
     userLottieRef.current.setDirection(-1);
     userLottieRef.current.play();
@@ -40,17 +45,20 @@ function Header() {
       searchLottieRef.current.play();
     }
   };
+
   const handleSearchMouseLeave = () => {
     if (!searchFocused) {
       searchLottieRef.current.setDirection(-1);
       searchLottieRef.current.play();
     }
   };
+
   const handleSearchFocus = () => {
     setSearchFocused(true);
     searchLottieRef.current.setDirection(1);
     searchLottieRef.current.play();
   };
+
   const handleSearchBlur = () => {
     setSearchFocused(false);
     searchLottieRef.current.setDirection(-1);
@@ -65,30 +73,46 @@ function Header() {
         </div>
       </Link>
       <div
-        className="header__menu"
-        tabIndex={0}
-        aria-label="Open menu"
+        className="header__menu-container"
         onMouseEnter={handleMenuMouseEnter}
         onMouseLeave={handleMenuMouseLeave}
-        onFocus={handleMenuMouseEnter}
-        onBlur={handleMenuMouseLeave}
       >
-        <Lottie
-          lottieRef={menuLottieRef}
-          animationData={menuV4}
-          loop={false}
-          autoplay={false}
-          className="header__menu__icon"
-        />
-        <span className="link_underline">
-          <ShinyText
-            text="Menu"
-            disabled={false}
-            speed={3}
-            className="custom-class"
+        <div
+          className="header__menu"
+          tabIndex={0}
+          aria-label="Open menu"
+          onFocus={handleMenuMouseEnter}
+          onBlur={handleMenuMouseLeave}
+        >
+          <Lottie
+            lottieRef={menuLottieRef}
+            animationData={menuV4}
+            loop={false}
+            autoplay={false}
+            className="header__menu__icon"
           />
-        </span>
+          <span className="link_underline">
+            <ShinyText
+              text="Menu"
+              disabled={false}
+              speed={3}
+              className="custom-class"
+            />
+          </span>
+        </div>
+
+        {/* Dropdown Menu */}
+        <div className={`header__dropdown ${menuOpen ? "open" : ""}`}>
+          <ul className="header__dropdown-list">
+            <li className="header__dropdown-item">
+              <Link to="/explore" className="header__dropdown-link">
+                <span>Explore Products</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
+
       <div
         className="header__search"
         onMouseEnter={handleSearchMouseEnter}

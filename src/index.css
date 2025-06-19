@@ -13,3 +13,45 @@
 body {
   background-color: #282d2a;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Improve tap target sizes on mobile */
+  button,
+  input[type="submit"],
+  input[type="button"],
+  a.button,
+  .header__dropdown-link,
+  .header__menu,
+  .header__profile {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+  }
+
+  /* Fix mobile zoom issue with inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Fix for devices with notches */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
