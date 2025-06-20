@@ -1,53 +1,113 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
 import menuV4 from "../assets/icons/menuV4.json";
 import userPlus from "../assets/icons/userPlus.json";
 import searchToX from "../assets/icons/searchToX.json";
+import cart from "../assets/icons/cart.json"; // Import cart animation
+import userAvatar from "../assets/icons/userAvatar.json"; // Add this import at the top
 import "./Header.css";
-import { Link } from "react-router-dom";
-import Lottie from "lottie-react";
 import ShinyText from "../assets/ReactBits/TextAnimations-files/ShinyText/ShinyText";
+import { useStateValue } from "../StateProvider";
+import { auth } from "./firebase";
+import { signOut } from "firebase/auth";
 
 function Header() {
   const menuLottieRef = useRef();
   const userLottieRef = useRef();
   const searchLottieRef = useRef();
+  const cartLottieRef = useRef(); // Add ref for cart animation
+  const userAvatarLottieRef = useRef(); // Add this ref
   const [searchFocused, setSearchFocused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const menuTimeoutRef = useRef(null);
+  const userMenuTimeoutRef = useRef(null);
+  const [{ user, basket }] = useStateValue(); // Add basket from state if available
+  const navigate = useNavigate();
 
-  // Menu animation handlers
+  // Initialize animations
+  useEffect(() => {
+    // Give time for Lottie animations to initialize
+    const timer = setTimeout(() => {
+      if (userLottieRef.current) userLottieRef.current.pause();
+      if (menuLottieRef.current) menuLottieRef.current.pause();
+      if (searchLottieRef.current) searchLottieRef.current.pause();
+      if (cartLottieRef.current) cartLottieRef.current.pause();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+    return () => {
+      clearTimeout(menuTimeoutRef.current);
+      clearTimeout(userMenuTimeoutRef.current);
+    };
+  }, []);
+
+  // Menu handlers with delay
   const handleMenuMouseEnter = () => {
-    menuLottieRef.current.setDirection(1);
-    menuLottieRef.current.play();
-    setMenuOpen(true);
+    clearTimeout(menuTimeoutRef.current);
+    if (menuLottieRef.current) {
+      menuLottieRef.current.setDirection(1);
+      menuLottieRef.current.play();
+      setMenuOpen(true);
+    }
   };
 
   const handleMenuMouseLeave = () => {
-    menuLottieRef.current.setDirection(-1);
-    menuLottieRef.current.play();
-    setMenuOpen(false);
+    menuTimeoutRef.current = setTimeout(() => {
+      if (menuLottieRef.current) {
+        menuLottieRef.current.setDirection(-1);
+        menuLottieRef.current.play();
+      }
+      setMenuOpen(false);
+    }, 300);
   };
 
-  // User animation handlers
+  // Cart handlers
+  const handleCartMouseEnter = () => {
+    if (cartLottieRef.current) {
+      cartLottieRef.current.goToAndStop(0, true); // Reset to first frame
+      cartLottieRef.current.setDirection(1);
+      cartLottieRef.current.play();
+    }
+  };
+
+  // User menu handlers - improved to ensure dropdown stays open
   const handleUserMouseEnter = () => {
-    userLottieRef.current.setDirection(1);
-    userLottieRef.current.play();
+    clearTimeout(userMenuTimeoutRef.current);
+    if (userLottieRef.current) {
+      userLottieRef.current.setDirection(1);
+      userLottieRef.current.play();
+    }
+    if (user) {
+      setUserMenuOpen(true);
+    }
   };
 
   const handleUserMouseLeave = () => {
-    userLottieRef.current.setDirection(-1);
-    userLottieRef.current.play();
+    userMenuTimeoutRef.current = setTimeout(() => {
+      if (userLottieRef.current) {
+        userLottieRef.current.setDirection(-1);
+        userLottieRef.current.play();
+      }
+      if (user) {
+        setUserMenuOpen(false);
+      }
+    }, 500); // Increased delay for dropdown to stay open longer
   };
 
   // Search icon logic
   const handleSearchMouseEnter = () => {
-    if (!searchFocused) {
+    if (!searchFocused && searchLottieRef.current) {
       searchLottieRef.current.setDirection(1);
       searchLottieRef.current.play();
     }
   };
 
   const handleSearchMouseLeave = () => {
-    if (!searchFocused) {
+    if (!searchFocused && searchLottieRef.current) {
       searchLottieRef.current.setDirection(-1);
       searchLottieRef.current.play();
     }
@@ -55,14 +115,44 @@ function Header() {
 
   const handleSearchFocus = () => {
     setSearchFocused(true);
-    searchLottieRef.current.setDirection(1);
-    searchLottieRef.current.play();
+    if (searchLottieRef.current) {
+      searchLottieRef.current.setDirection(1);
+      searchLottieRef.current.play();
+    }
   };
 
   const handleSearchBlur = () => {
     setSearchFocused(false);
-    searchLottieRef.current.setDirection(-1);
-    searchLottieRef.current.play();
+    if (searchLottieRef.current) {
+      searchLottieRef.current.setDirection(-1);
+      searchLottieRef.current.play();
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      navigate("/");
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
+
+  // Clean up all timeouts
+  useEffect(() => {
+    return () => {
+      clearTimeout(menuTimeoutRef.current);
+      clearTimeout(userMenuTimeoutRef.current);
+    };
+  }, []);
+
+  // User avatar animation handlers (optional, for hover/focus)
+  const handleUserAvatarMouseEnter = () => {
+    if (userAvatarLottieRef.current) {
+      userAvatarLottieRef.current.goToAndStop(0, true);
+      userAvatarLottieRef.current.setDirection(1);
+      userAvatarLottieRef.current.play();
+    }
   };
 
   return (
@@ -72,15 +162,14 @@ function Header() {
           <h1>Kartigo</h1>
         </div>
       </Link>
-      <div
-        className="header__menu-container"
-        onMouseEnter={handleMenuMouseEnter}
-        onMouseLeave={handleMenuMouseLeave}
-      >
+
+      <div className="header__menu-container">
         <div
           className="header__menu"
           tabIndex={0}
           aria-label="Open menu"
+          onMouseEnter={handleMenuMouseEnter}
+          onMouseLeave={handleMenuMouseLeave}
           onFocus={handleMenuMouseEnter}
           onBlur={handleMenuMouseLeave}
         >
@@ -101,8 +190,12 @@ function Header() {
           </span>
         </div>
 
-        {/* Dropdown Menu */}
-        <div className={`header__dropdown ${menuOpen ? "open" : ""}`}>
+        {/* Dropdown Menu with mouse events */}
+        <div
+          className={`header__dropdown ${menuOpen ? "open" : ""}`}
+          onMouseEnter={handleMenuMouseEnter}
+          onMouseLeave={handleMenuMouseLeave}
+        >
           <ul className="header__dropdown-list">
             <li className="header__dropdown-item">
               <Link to="/explore" className="header__dropdown-link">
@@ -134,33 +227,117 @@ function Header() {
           className="header__search__icon"
         />
       </div>
-      <Link to="/auth/signin" className="header__auth-link">
+
+      {/* New Cart Button */}
+      <Link to="/cart" className="header__cart-link">
         <div
-          className="header__profile"
+          className="header__cart"
           tabIndex={0}
-          aria-label="Sign in"
-          onMouseEnter={handleUserMouseEnter}
-          onMouseLeave={handleUserMouseLeave}
-          onFocus={handleUserMouseEnter}
-          onBlur={handleUserMouseLeave}
+          aria-label="Shopping cart"
+          onMouseEnter={handleCartMouseEnter}
+          onFocus={handleCartMouseEnter}
         >
           <Lottie
-            lottieRef={userLottieRef}
-            animationData={userPlus}
+            lottieRef={cartLottieRef}
+            animationData={cart}
             loop={false}
             autoplay={false}
-            className="header__menu__icon"
+            className="header__cart__icon"
           />
-          <span className="link_underline">
-            <ShinyText
-              text="Sign-in"
-              disabled={false}
-              speed={3}
-              className="custom-class"
-            />
-          </span>
+          {basket && basket.length > 0 && (
+            <span className="header__cart-count">{basket.length}</span>
+          )}
         </div>
       </Link>
+
+      {user ? (
+        <div
+          className="header__user-container"
+          onMouseEnter={handleUserMouseEnter}
+          onMouseLeave={handleUserMouseLeave}
+        >
+          <div
+            className="header__profile header__profile-logged-in"
+            tabIndex={0}
+            aria-label="User menu"
+            onMouseEnter={handleUserAvatarMouseEnter}
+            onFocus={handleUserAvatarMouseEnter}
+          >
+            <div
+              className="header__avatar"
+              tabIndex={-1}
+              aria-label="User avatar"
+            >
+              <Lottie
+                lottieRef={userAvatarLottieRef}
+                animationData={userAvatar}
+                loop={false}
+                autoplay={false}
+                className="header__avatar__icon"
+              />
+            </div>
+            <span className="header__username">
+              {user.displayName || user.email.split("@")[0]}
+            </span>
+          </div>
+
+          {/* User dropdown menu with mouse events */}
+          <div
+            className={`header__user-dropdown ${userMenuOpen ? "open" : ""}`}
+            onMouseEnter={handleUserMouseEnter}
+            onMouseLeave={handleUserMouseLeave}
+          >
+            <ul className="header__user-dropdown-list">
+              <li className="header__user-dropdown-item">
+                <Link to="/account" className="header__user-dropdown-link">
+                  My Account
+                </Link>
+              </li>
+              <li className="header__user-dropdown-item">
+                <Link to="/orders" className="header__user-dropdown-link">
+                  My Orders
+                </Link>
+              </li>
+              <li className="header__user-dropdown-item">
+                <button
+                  onClick={handleSignOut}
+                  className="header__user-dropdown-link header__sign-out"
+                >
+                  Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ) : (
+        <Link to="/auth/signin" className="header__auth-link">
+          <div
+            className="header__profile"
+            tabIndex={0}
+            aria-label="Sign in"
+            onMouseEnter={handleUserMouseEnter}
+            onMouseLeave={handleUserMouseLeave}
+            onFocus={handleUserMouseEnter}
+            onBlur={handleUserMouseLeave}
+          >
+            <Lottie
+              lottieRef={userLottieRef}
+              animationData={userPlus}
+              loop={false}
+              autoplay={false}
+              className="header__menu__icon"
+            />
+            <span className="link_underline">
+              <ShinyText
+                text="Sign-in"
+                disabled={false}
+                speed={3}
+                className="custom-class"
+              />
+            </span>
+          </div>
+        </Link>
+      )}
     </nav>
   );
 }

@@ -217,7 +217,7 @@
   content: "";
   display: block;
   position: absolute;
-  left: 2px;
+  left: 2.5px;
   top: -2px;
   width: 8px;
   height: 14px;
@@ -261,7 +261,7 @@
   color: #9cccc4;
   font-size: 0.9rem;
   letter-spacing: 0.2px;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
 }
 
 .authSignIn__signup-link-text {
@@ -279,7 +279,56 @@
   outline: none;
 }
 
-/* Add these media queries at the end of your AuthSignIn.css file */
+/* Error message styling - keeping minimal styling for error messages */
+.authSignIn__error {
+  background-color: rgba(255, 59, 48, 0.1);
+  border-left: 3px solid #ff3b30;
+  color: #ff3b30;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 90%;
+  text-align: left;
+}
+
+.authSignIn__forgot-password {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-bottom: 22px;
+}
+
+.authSignIn__forgot-password-link {
+  color: #27b758;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.authSignIn__forgot-password-link:hover,
+.authSignIn__forgot-password-link:focus {
+  color: #9cccc4;
+  text-shadow: 0 0 4px #27b75888;
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 500px) {
+  .authSignIn {
+    padding: 20px;
+  }
+
+  .authSignIn__container {
+    width: calc(100% - 40px);
+    padding: 20px;
+  }
+}
 
 @media (max-width: 500px) {
   .authSignIn {
@@ -338,4 +387,16 @@
   .authSignIn__input-password {
     font-size: 14px;
   }
+}
+
+/* Add these styles for the loading animation */
+.authSignIn__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authSignIn__loading-animation {
+  display: inline-block;
+  vertical-align: middle;
 }

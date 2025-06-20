@@ -2,7 +2,6 @@ import React from "react";
 import PriceSlider from "./PriceSlider";
 import "./Explore.css";
 import ExploreProduct from "./ExploreProduct";
-import { Link } from "react-router-dom";
 
 function Explore() {
   return (
@@ -68,17 +67,16 @@ function Explore() {
       <div className="explore-content">
         <h2 className="explore-content-heading">Explore Products</h2>
         <div className="explore-content-products">
-          <Link to="/product/1">
-            <ExploreProduct
-              image={
-                "https://m.media-amazon.com/images/I/61aPY8odPSL._AC_SL1500_.jpg"
-              }
-              title={
-                "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue "
-              }
-              price={299.0}
-            />
-          </Link>
+          <ExploreProduct
+            product_id={"0001"}
+            image={
+              "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748950/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_0_tn5yfm.png"
+            }
+            title={
+              "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue "
+            }
+            price={299.0}
+          />
         </div>
       </div>
     </div>
