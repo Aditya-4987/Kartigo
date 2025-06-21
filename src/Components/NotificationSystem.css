@@ -1,0 +1,79 @@
+.notification-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  max-height: 80vh;
+  overflow-y: auto;
+  pointer-events: none; /* Allow clicking through notifications */
+}
+
+.notification-item {
+  background-color: rgba(39, 183, 88, 0.4);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(39, 183, 88, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: notificationFadeIn 0.3s ease-out forwards,
+    notificationFadeOut 0.5s ease-in forwards;
+  animation-delay: 0s, calc(var(--duration, 3000ms) - 500ms);
+  min-width: 200px;
+  pointer-events: auto; /* Make each notification clickable */
+}
+
+.notification-animation {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-content {
+  font-weight: 500;
+  color: white;
+  font-size: 0.95rem;
+}
+
+@keyframes notificationFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes notificationFadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Additional mobile responsiveness */
+@media (max-width: 768px) {
+  .notification-container {
+    bottom: 10px;
+    right: 10px;
+    max-width: 90%;
+  }
+
+  .notification-item {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+  }
+}

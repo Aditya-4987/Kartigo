@@ -1,160 +1,133 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./PriceSlider.css";
 
-const PriceSlider = ({ min = 0, max = 5000, onChange }) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max / 4); // Default to 25% of max
-  const [isSliding, setIsSliding] = useState(false);
-  const [activeThumb, setActiveThumb] = useState(null);
+function PriceSlider({ onChange = () => {} }) {
+  const [priceRange, setPriceRange] = useState({ min: 500, max: 100000 });
+  const [inputValues, setInputValues] = useState({ min: "500", max: "100000" });
 
-  // Calculate percentage for styling
-  const getPercent = (value) => Math.round(((value - min) / (max - min)) * 100);
+  // Handle typing in the input fields
+  const handleMinInputChange = (e) => {
+    const value = e.target.value;
+    setInputValues({ ...inputValues, min: value });
+  };
 
-  const minPercent = getPercent(minVal);
-  const maxPercent = getPercent(maxVal);
+  const handleMaxInputChange = (e) => {
+    const value = e.target.value;
+    setInputValues({ ...inputValues, max: value });
+  };
 
-  // Handle value changes
-  useEffect(() => {
-    if (onChange) {
-      onChange([minVal, maxVal]);
+  // Apply constraints and call onChange when values actually change
+  const handleMinBlur = () => {
+    const rawValue = Number(inputValues.min);
+    if (isNaN(rawValue)) {
+      setInputValues({ ...inputValues, min: priceRange.min.toString() });
+      return;
     }
-  }, [minVal, maxVal, onChange]);
+
+    // Round to nearest 100
+    const value = Math.floor(rawValue / 100) * 100;
+    const newMin = Math.max(0, Math.min(value, priceRange.max - 100));
+
+    setPriceRange({ ...priceRange, min: newMin });
+    setInputValues({ ...inputValues, min: newMin.toString() });
+
+    // Call the onChange prop with the updated range
+    onChange(newMin, priceRange.max);
+  };
+
+  const handleMaxBlur = () => {
+    const rawValue = Number(inputValues.max);
+    if (isNaN(rawValue)) {
+      setInputValues({ ...inputValues, max: priceRange.max.toString() });
+      return;
+    }
+
+    // Round to nearest 100
+    const value = Math.floor(rawValue / 100) * 100;
+    const newMax = Math.min(300000, Math.max(value, priceRange.min + 100));
+
+    setPriceRange({ ...priceRange, max: newMax });
+    setInputValues({ ...inputValues, max: newMax.toString() });
+
+    // Call the onChange prop with the updated range
+    onChange(priceRange.min, newMax);
+  };
+
+  // Increment/Decrement functions
+  const incrementMin = () => {
+    const newMin = Math.min(priceRange.min + 100, priceRange.max - 100);
+    setPriceRange({ ...priceRange, min: newMin });
+    setInputValues({ ...inputValues, min: newMin.toString() });
+    onChange(newMin, priceRange.max);
+  };
+
+  const decrementMin = () => {
+    const newMin = Math.max(0, priceRange.min - 100);
+    setPriceRange({ ...priceRange, min: newMin });
+    setInputValues({ ...inputValues, min: newMin.toString() });
+    onChange(newMin, priceRange.max);
+  };
+
+  const incrementMax = () => {
+    const newMax = Math.min(300000, priceRange.max + 100);
+    setPriceRange({ ...priceRange, max: newMax });
+    setInputValues({ ...inputValues, max: newMax.toString() });
+    onChange(priceRange.min, newMax);
+  };
+
+  const decrementMax = () => {
+    const newMax = Math.max(priceRange.min + 100, priceRange.max - 100);
+    setPriceRange({ ...priceRange, max: newMax });
+    setInputValues({ ...inputValues, max: newMax.toString() });
+    onChange(priceRange.min, newMax);
+  };
 
   return (
-    <div className="price-range-slider">
-      <div className="price-header">
-        <h4>Price Range</h4>
-        <div className="price-values">
-          <span className="price-display">
-            ${minVal} - ${maxVal}
-          </span>
-        </div>
-      </div>
-
-      <div className="slider-container">
-        <div className="slider-track"></div>
-        <div
-          className="slider-range"
-          style={{
-            left: `${minPercent}%`,
-            width: `${maxPercent - minPercent}%`,
-          }}
-        ></div>
-
-        {/* Min thumb */}
-        <div className="slider-group">
-          <input
-            type="range"
-            min={min}
-            max={max}
-            value={minVal}
-            onChange={(e) => {
-              const value = Math.min(Number(e.target.value), maxVal - 1);
-              setMinVal(value);
-            }}
-            onMouseDown={() => {
-              setIsSliding(true);
-              setActiveThumb("min");
-            }}
-            onMouseUp={() => setIsSliding(false)}
-            onTouchStart={() => {
-              setIsSliding(true);
-              setActiveThumb("min");
-            }}
-            onTouchEnd={() => setIsSliding(false)}
-            className="thumb thumb-left"
-            style={{ zIndex: minVal > max - 100 ? "5" : "4" }}
-          />
-          <div
-            className={`thumb-value ${
-              isSliding && activeThumb === "min" ? "active" : ""
-            }`}
-            style={{ left: `${minPercent}%` }}
-          >
-            ${minVal}
+    <div className="price-filter">
+      <h3>Price Range</h3>
+      <div className="price-inputs">
+        <div className="price-input-container">
+          <span>Min:</span>
+          <div className="price-input-with-buttons">
+            <button className="price-btn" onClick={decrementMin} type="button">
+              -
+            </button>
+            <div className="price-input-wrapper">
+              <input
+                type="text"
+                value={inputValues.min}
+                onChange={handleMinInputChange}
+                onBlur={handleMinBlur}
+              />
+            </div>
+            <button className="price-btn" onClick={incrementMin} type="button">
+              +
+            </button>
           </div>
         </div>
 
-        {/* Max thumb */}
-        <div className="slider-group">
-          <input
-            type="range"
-            min={min}
-            max={max}
-            value={maxVal}
-            onChange={(e) => {
-              const value = Math.max(Number(e.target.value), minVal + 1);
-              setMaxVal(value);
-            }}
-            onMouseDown={() => {
-              setIsSliding(true);
-              setActiveThumb("max");
-            }}
-            onMouseUp={() => setIsSliding(false)}
-            onTouchStart={() => {
-              setIsSliding(true);
-              setActiveThumb("max");
-            }}
-            onTouchEnd={() => setIsSliding(false)}
-            className="thumb thumb-right"
-          />
-          <div
-            className={`thumb-value ${
-              isSliding && activeThumb === "max" ? "active" : ""
-            }`}
-            style={{ left: `${maxPercent}%` }}
-          >
-            ${maxVal}
+        <div className="price-input-container">
+          <span>Max:</span>
+          <div className="price-input-with-buttons">
+            <button className="price-btn" onClick={decrementMax} type="button">
+              -
+            </button>
+            <div className="price-input-wrapper">
+              <input
+                type="text"
+                value={inputValues.max}
+                onChange={handleMaxInputChange}
+                onBlur={handleMaxBlur}
+              />
+            </div>
+            <button className="price-btn" onClick={incrementMax} type="button">
+              +
+            </button>
           </div>
         </div>
       </div>
-
-      <div className="input-controls">
-        <div className="input-group">
-          <label htmlFor="min-price">Min</label>
-          <div className="input-wrapper">
-            <span className="currency">$</span>
-            <input
-              type="number"
-              id="min-price"
-              value={minVal}
-              min={min}
-              max={maxVal - 1}
-              onChange={(e) => {
-                const value = Math.min(Number(e.target.value), maxVal - 1);
-                setMinVal(value >= min ? value : min);
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="max-price">Max</label>
-          <div className="input-wrapper">
-            <span className="currency">$</span>
-            <input
-              type="number"
-              id="max-price"
-              value={maxVal}
-              min={minVal + 1}
-              max={max}
-              onChange={(e) => {
-                const value = Math.max(Number(e.target.value), minVal + 1);
-                setMaxVal(value <= max ? value : max);
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
-      <button
-        className="apply-button"
-        onClick={() => onChange && onChange([minVal, maxVal])}
-      >
-        Apply
-      </button>
     </div>
   );
-};
+}
 
 export default PriceSlider;

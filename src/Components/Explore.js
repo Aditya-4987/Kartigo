@@ -1,82 +1,130 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PriceSlider from "./PriceSlider";
 import "./Explore.css";
 import ExploreProduct from "./ExploreProduct";
+import { getAllProducts, getProductCategories } from "../utils/productData";
 
 function Explore() {
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 300000 });
+
+  useEffect(() => {
+    // Load all products
+    const allProducts = getAllProducts();
+    setProducts(allProducts);
+
+    // Get unique categories
+    const allCategories = getProductCategories();
+    setCategories(allCategories);
+
+    // Get unique brands
+    const allBrands = [
+      ...new Set(allProducts.map((product) => product.Brand).filter(Boolean)),
+    ];
+    setBrands(allBrands);
+  }, []);
+
+  const filteredProducts = products.filter((product) => {
+    // Filter by price
+    const isInPriceRange =
+      product.Price >= priceRange.min && product.Price <= priceRange.max;
+
+    // Filter by selected categories (if any are selected)
+    const isInSelectedCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.Category);
+
+    // Filter by selected brands (if any are selected)
+    const isInSelectedBrand =
+      selectedBrands.length === 0 || selectedBrands.includes(product.Brand);
+
+    return isInPriceRange && isInSelectedCategory && isInSelectedBrand;
+  });
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategories((prev) => {
+      if (prev.includes(category)) {
+        return prev.filter((c) => c !== category);
+      } else {
+        return [...prev, category];
+      }
+    });
+  };
+
+  const handleBrandChange = (brand) => {
+    setSelectedBrands((prev) => {
+      if (prev.includes(brand)) {
+        return prev.filter((b) => b !== brand);
+      } else {
+        return [...prev, brand];
+      }
+    });
+  };
+
+  const handlePriceChange = (min, max) => {
+    setPriceRange({ min, max });
+  };
+
   return (
     <div className="explore">
       <div className="explore-sidebar">
         <div className="explore-sidebar-priceSlider">
-          <PriceSlider />
+          <PriceSlider onChange={handlePriceChange} />
+
+          {/* Categories filter */}
           <div className="explore-sidebar-product-catgories">
             <h4 className="categories-heading">Categories</h4>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="smartPhonesTablets"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="smartPhonesTablets">
-                Smart Phones & tablets{" "}
-              </label>
-            </span>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="laptops"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="laptops">Laptops</label>
-            </span>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="displays"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="displays">Displays</label>
-            </span>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="wearables"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="wearables">Wearables</label>
-            </span>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="audioDevices"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="audioDevices">Audio Devices</label>
-            </span>
-            <span className="sidebar-checkbox-span">
-              <input
-                type="checkbox"
-                id="accessories"
-                className="sidebar-checkbox"
-              />
-              <label htmlFor="accessories">Accessories</label>
-            </span>
+            {categories.map((category) => (
+              <span key={category} className="sidebar-checkbox-span">
+                <input
+                  type="checkbox"
+                  id={category}
+                  className="sidebar-checkbox"
+                  checked={selectedCategories.includes(category)}
+                  onChange={() => handleCategoryChange(category)}
+                />
+                <label htmlFor={category}>
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </label>
+              </span>
+            ))}
+          </div>
+
+          {/* Brands filter */}
+          <div className="explore-sidebar-product-brands">
+            <h4 className="categories-heading">Brands</h4>
+            {brands.map((brand) => (
+              <span key={brand} className="sidebar-checkbox-span">
+                <input
+                  type="checkbox"
+                  id={`brand-${brand}`}
+                  className="sidebar-checkbox"
+                  checked={selectedBrands.includes(brand)}
+                  onChange={() => handleBrandChange(brand)}
+                />
+                <label htmlFor={`brand-${brand}`}>{brand}</label>
+              </span>
+            ))}
           </div>
         </div>
       </div>
       <div className="explore-content">
         <h2 className="explore-content-heading">Explore Products</h2>
         <div className="explore-content-products">
-          <ExploreProduct
-            product_id={"0001"}
-            image={
-              "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748950/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_0_tn5yfm.png"
-            }
-            title={
-              "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue "
-            }
-            price={299.0}
-          />
+          {filteredProducts.map((product) => (
+            <ExploreProduct
+              key={product.id}
+              product_id={product.id}
+              image={product.mainImage}
+              title={product.title}
+              price={product.Price}
+              rating={product.rating}
+            />
+          ))}
         </div>
       </div>
     </div>

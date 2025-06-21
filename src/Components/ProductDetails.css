@@ -5,12 +5,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 900;
-  top: 100px;
+  top: 80px;
   transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(16px);
   z-index: -1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   opacity: 1;
@@ -29,9 +29,10 @@
 }
 
 .product-details {
+  top: 10px;
   width: 90%;
   max-width: 1200px;
-  max-height: 79vh;
+  max-height: 80vh; /* Better height constraint */
   overflow-y: auto;
   padding: 30px;
   background-color: rgba(11, 20, 17, 0.7);
@@ -114,21 +115,23 @@
   padding: 10px 0 10px 0;
   flex: 0 0 55%;
   max-width: 55%;
+  height: 450px;
 }
 
 .product-details-image {
-  width: 100%; /* Container takes full width of parent */
+  width: auto;
   max-width: 92%;
-  height: auto;
+  height: 418px;
   border-radius: 8px;
   background: rgba(11, 20, 17, 0.7);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 20px;
-  display: flex; /* Use flexbox to center the image */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Important for positioning children */
 }
 
 .product-details-image > img {
@@ -172,6 +175,12 @@
   backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.18);
   font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
 }
 
 .product-details-description h3 {
@@ -272,6 +281,7 @@
   box-shadow: 0 0 20px rgba(39, 183, 88, 0.25);
   z-index: 10;
   margin-left: 15px;
+  margin-right: 30px;
   border-radius: 10px;
   animation: modalFadeIn 0.3s ease-out forwards;
 }
@@ -348,4 +358,449 @@
 .product-details-actions h3 {
   font-size: 1.2rem;
   color: #27b758;
+}
+.product-details-image {
+  width: auto;
+  max-width: 92%;
+  height: 418px;
+  border-radius: 8px;
+  background: rgba(11, 20, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Important for positioning children */
+}
+
+.product-details-image > img,
+.product-details-image > video {
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 360px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Navigation buttons */
+.image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(39, 183, 88, 0.2);
+  color: #27b758;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 5;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.image-nav-btn:hover {
+  background-color: rgba(39, 183, 88, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.image-counter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(11, 20, 17, 0.7);
+  color: #9cccc4;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(39, 183, 88, 0.3);
+}
+
+/* Thumbnail styles */
+.image-thumbnails-container {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  padding: 0 45px; /* Make space for navigation buttons */
+  background: rgba(11, 20, 17, 0.75);
+  border-radius: 0 0 8px 8px;
+  z-index: 5;
+}
+
+.image-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #27b758 rgba(11, 20, 17, 0.7);
+  max-width: 100%;
+}
+.image-thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+.image-thumbnails::-webkit-scrollbar-track {
+  background: rgba(11, 20, 17, 0.7);
+  border-radius: 2px;
+}
+
+.image-thumbnails::-webkit-scrollbar-thumb {
+  background-color: #27b758;
+  border-radius: 2px;
+}
+.thumbnail {
+  min-width: 50px;
+  width: 50px; /* Increased from 30px for better visibility */
+  height: 50px; /* Increased from 30px for better visibility */
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid rgba(156, 204, 196, 0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(11, 20, 17, 0.7);
+  flex-shrink: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail.active {
+  border-color: #27b758;
+  transform: scale(1.1);
+}
+
+.thumbnail:hover {
+  border-color: #27b758;
+}
+
+.video-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+}
+
+.video-thumbnail span {
+  color: #27b758;
+  font-size: 20px;
+}
+
+.more-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9cccc4;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-details-image {
+    height: 300px;
+  }
+
+  .product-details-image > img,
+  .product-details-image > video {
+    max-height: 220px;
+  }
+
+  .thumbnail {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .image-thumbnails-container {
+    padding: 0 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-details-image {
+    height: 250px;
+  }
+
+  .product-details-image > img,
+  .product-details-image > video {
+    max-height: 170px;
+  }
+
+  .thumbnail {
+    min-width: 35px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .image-thumbnails-container {
+    padding: 0 30px;
+  }
+}
+
+/* Fix product-details-image duplicated styles */
+.product-details-image {
+  width: auto;
+  max-width: 92%;
+  height: 418px;
+  border-radius: 8px;
+  background: rgba(11, 20, 17, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Important for positioning children */
+}
+
+/* Make image clickable with visual feedback */
+.clickable-image {
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-image:hover {
+  opacity: 0.9;
+}
+
+/* Fullscreen hint */
+.fullscreen-hint {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(11, 20, 17, 0.7);
+  color: #9cccc4;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(39, 183, 88, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.product-details-image:hover .fullscreen-hint {
+  opacity: 1;
+}
+
+.fullscreen-icon {
+  font-size: 1rem;
+  color: #27b758;
+}
+
+/* Fullscreen Preview Modal */
+.fullscreen-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+.fullscreen-content {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fullscreen-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(39, 183, 88, 0.2);
+  color: #27b758;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.fullscreen-close:hover {
+  background-color: rgba(39, 183, 88, 0.4);
+  transform: scale(1.1);
+}
+
+.fullscreen-image-container {
+  width: 100%;
+  height: calc(100% - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fullscreen-media {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-prev-btn,
+.fullscreen-next-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+}
+
+.fullscreen-prev-btn {
+  left: 20px;
+}
+
+.fullscreen-next-btn {
+  right: 20px;
+}
+
+.fullscreen-caption {
+  margin-top: 15px;
+  color: #9cccc4;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 80%;
+}
+
+/* Animation for fullscreen modal */
+.fullscreen-preview {
+  animation: fullscreenFadeIn 0.3s ease forwards;
+}
+
+@keyframes fullscreenFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments for fullscreen view */
+@media (max-width: 768px) {
+  .fullscreen-media {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  .fullscreen-prev-btn,
+  .fullscreen-next-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .fullscreen-caption {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullscreen-media {
+    max-width: 100%;
+    max-height: 70%;
+  }
+
+  .fullscreen-prev-btn,
+  .fullscreen-next-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .fullscreen-caption {
+    font-size: 0.8rem;
+  }
+
+  .thumbnail {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+}
+
+/* Replace the animating style with a simpler active state */
+.add-to-cart-btn.active {
+  background-color: rgba(39, 183, 88, 0.6);
+  color: white;
+  transform: scale(0.98);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Update the background color of the notification */
+.add-confirmation {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: rgba(
+    39,
+    183,
+    88,
+    0.4
+  ); /* Changed from black to semi-transparent green */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  animation: fadeInOut 3s forwards;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(39, 183, 88, 0.4);
+}
+
+.add-confirmation span {
+  font-weight: 500;
+  color: white; /* Changed from #9cccc4 to white for better contrast on the green background */
+  font-size: 0.95rem;
 }

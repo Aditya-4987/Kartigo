@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: calc(25% - 10px);
+  width: calc(24% - 20px);
   padding: 10px;
   border-radius: 10px 10px 10px 10px;
   background: rgba(11, 20, 17, 0.7);
@@ -25,7 +25,7 @@
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: 230px; /* Maintain max height for images */
+  max-height: 300px; /* Maintain max height for images */
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 0px 2px 0 rgba(39, 183, 88, 0.8);
@@ -40,11 +40,11 @@
 }
 
 .product-title {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #9cccc4;
   margin: 10px 10px;
   line-height: 1.2;
-  max-height: 80px;
+  height: 60px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -75,12 +75,12 @@
 .rating-stars {
   font-size: 0.9rem;
   color: #27b758;
-  letter-spacing: -2px;
+  letter-spacing: 0px;
   transition: all 0.2s;
 }
 
 .rating-count {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: rgba(156, 204, 196, 0.7);
   margin-top: 2px;
   transition: all 0.2s;

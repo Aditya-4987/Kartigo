@@ -411,20 +411,52 @@
   height: 30px;
 }
 
+/* Update the cart counter with animation */
 .header__cart-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -7px;
+  right: -7px;
   background-color: #27b758;
   color: white;
   border-radius: 50%;
   font-size: 12px;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border: 2px solid rgba(11, 20, 17, 0.7);
+}
+
+/* Update the animation to make it more noticeable */
+@keyframes cartCountPulse {
+  0% {
+    transform: scale(1);
+    background-color: #27b758;
+  }
+  50% {
+    transform: scale(1.5);
+    background-color: #ffffff;
+    color: #27b758;
+    box-shadow: 0 0 10px rgba(39, 183, 88, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #27b758;
+  }
+}
+
+/* Ensure the animation is more noticeable */
+.header__cart-count.animate {
+  animation: cartCountPulse 0.5s ease-out;
+}
+
+/* When hovering on the cart, make the count more visible */
+.header__cart:hover .header__cart-count {
+  background-color: #fff;
+  color: #27b758;
 }
 
 /* Adjust user dropdown z-index and improve hover detection */

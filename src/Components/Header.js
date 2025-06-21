@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
+// Import animations, but with error handling
 import menuV4 from "../assets/icons/menuV4.json";
 import userPlus from "../assets/icons/userPlus.json";
 import searchToX from "../assets/icons/searchToX.json";
-import cart from "../assets/icons/cart.json"; // Import cart animation
-import userAvatar from "../assets/icons/userAvatar.json"; // Add this import at the top
+import cart from "../assets/icons/cart.json";
+import userAvatar from "../assets/icons/userAvatar.json";
 import "./Header.css";
 import ShinyText from "../assets/ReactBits/TextAnimations-files/ShinyText/ShinyText";
 import { useStateValue } from "../StateProvider";
@@ -16,25 +17,61 @@ function Header() {
   const menuLottieRef = useRef();
   const userLottieRef = useRef();
   const searchLottieRef = useRef();
-  const cartLottieRef = useRef(); // Add ref for cart animation
-  const userAvatarLottieRef = useRef(); // Add this ref
+  const cartLottieRef = useRef();
+  const userAvatarLottieRef = useRef();
   const [searchFocused, setSearchFocused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const menuTimeoutRef = useRef(null);
   const userMenuTimeoutRef = useRef(null);
-  const [{ user, basket }] = useStateValue(); // Add basket from state if available
+  const [{ user, cart: cartItems }, dispatch] = useStateValue();
+  const [prevCartCount, setPrevCartCount] = useState(0);
+  const [cartCountAnimating, setCartCountAnimating] = useState(false);
   const navigate = useNavigate();
 
-  // Initialize animations
+  // Initialize animations with error handling
   useEffect(() => {
-    // Give time for Lottie animations to initialize
+    // Add a safe play function to handle animation errors
+    const safeLottiePlay = (ref) => {
+      if (ref && ref.current) {
+        try {
+          ref.current.play();
+        } catch (error) {
+          console.error("Lottie animation error:", error);
+        }
+      }
+    };
+
+    const safeSetDirection = (ref, direction) => {
+      if (ref && ref.current) {
+        try {
+          ref.current.setDirection(direction);
+          safeLottiePlay(ref);
+        } catch (error) {
+          console.error("Lottie animation error:", error);
+        }
+      }
+    };
+
+    // Replace direct animation calls with safe versions
     const timer = setTimeout(() => {
-      if (userLottieRef.current) userLottieRef.current.pause();
       if (menuLottieRef.current) menuLottieRef.current.pause();
+      if (userLottieRef.current) userLottieRef.current.pause();
       if (searchLottieRef.current) searchLottieRef.current.pause();
       if (cartLottieRef.current) cartLottieRef.current.pause();
     }, 500);
+
+    // Add event handlers with safe animation functions
+    const handleCartMouseEnter = () => {
+      if (cartLottieRef.current) {
+        try {
+          cartLottieRef.current.goToAndStop(0, true);
+          safeSetDirection(cartLottieRef, 1);
+        } catch (error) {
+          console.error("Cart animation error:", error);
+        }
+      }
+    };
 
     return () => clearTimeout(timer);
   }, []);
@@ -155,6 +192,19 @@ function Header() {
     }
   };
 
+  // Add this effect to handle cart count animation
+  useEffect(() => {
+    if (cartItems && cartItems.length !== prevCartCount) {
+      // Only animate if the count has changed
+      if (prevCartCount !== 0) {
+        // Don't animate on first load
+        setCartCountAnimating(true);
+        setTimeout(() => setCartCountAnimating(false), 300);
+      }
+      setPrevCartCount(cartItems.length);
+    }
+  }, [cartItems, prevCartCount]);
+
   return (
     <nav className="header" aria-label="Main navigation">
       <Link to="/" className="header__logo-link">
@@ -228,7 +278,7 @@ function Header() {
         />
       </div>
 
-      {/* New Cart Button */}
+      {/* Cart Button with animated counter */}
       <Link to="/cart" className="header__cart-link">
         <div
           className="header__cart"
@@ -244,8 +294,14 @@ function Header() {
             autoplay={false}
             className="header__cart__icon"
           />
-          {basket && basket.length > 0 && (
-            <span className="header__cart-count">{basket.length}</span>
+          {cartItems && cartItems.length > 0 && (
+            <span
+              className={`header__cart-count ${
+                cartCountAnimating ? "animate" : ""
+              }`}
+            >
+              {cartItems.length}
+            </span>
           )}
         </div>
       </Link>

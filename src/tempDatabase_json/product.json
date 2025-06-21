@@ -1,0 +1,759 @@
+[
+  {
+    "id": "prod0001",
+    "title": "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue ",
+    "MRP": 799.0,
+    "Price": 299.0,
+    "rating": 4,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748950/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_0_tn5yfm.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748950/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_0_tn5yfm.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748950/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_0_tn5yfm.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748955/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_2_z8enhw.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748956/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_3_ekukbq.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748958/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_4_rmnqwp.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748960/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_5_psui03.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748962/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_6_sroerk.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747748964/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/314071_7_j7kk7t.png"
+    ],
+    "Brand": "Apple",
+    "Category": "Smart Phones & tablets",
+    "Key Features": [
+      "11 inches (27.59 cm) Liquid Retina Display, 60 Hz Refresh Rate",
+      "128GB ROM",
+      "Apple A16 Chip, Penta Core",
+      "iPadOS 18",
+      "Upto 10 Hours Battery Life",
+      "12 MP Primary Camera, 12 MP Front Camera",
+      "Landscape Stereo Speakers, Touch ID, Video Mirroring"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "Liquid Retina display",
+          "LED backlit Multi-Touch display with IPS technology",
+          "2360-by-1640-pixel resolution at 264 ppi",
+          "True Tone",
+          "500 nits brightness",
+          "Fingerprint-resistant oleophobic coating",
+          "Supports Apple Pencil (USB-C)",
+          "Supports Apple Pencil (1st generation)"
+        ]
+      },
+      {
+        "section": "Processor",
+        "items": [
+          "Apple A16 chip with 6-core CPU",
+          "5-core GPU",
+          "16-core Neural Engine"
+        ]
+      },
+      {
+        "section": "Camera",
+        "items": [
+          "12 MP Wide camera with f/1.8 aperture",
+          "12 MP Ultra Wide front camera with f/2.4 aperture",
+          "Center Stage",
+          "Smart HDR 4",
+          "4K video recording at 24 fps, 30 fps, or 60 fps",
+          "1080p HD video recording at 30 fps or 60 fps"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "Up to 10 hours of surfing the web on Wi-Fi or watching videos",
+          "Up to 9 hours of surfing the web using a cellular data network",
+          "Built-in 28.6-watt-hour rechargeable lithium-polymer battery",
+          "USB-C connector for charging and accessories"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": [
+          "Wi-Fi 6 (802.11ax) with MIMO",
+          "Optional 5G cellular connectivity",
+          "Bluetooth 5.3",
+          "USB-C connector with support for USB 3.1 Gen 2 (up to 10 Gbps)"
+        ]
+      },
+      {
+        "section": "Operating System",
+        "items": [
+          "iPadOS 18 with features like Stage Manager, Freeform, and improved multitasking capabilities"
+        ]
+      },
+      {
+        "section": "Dimensions and Weight",
+        "items": [
+          "Height: 247.6 mm (9.74 inches)",
+          "Width: 178.5 mm (7.02 inches)",
+          "Depth: 6.1 mm (0.24 inches)",
+          "Weight: 481 grams (1.06 pounds) for Wi-Fi model",
+          "Weight: 482 grams (1.06 pounds) for Wi-Fi + Cellular model"
+        ]
+      },
+      {
+        "section": "Other Features",
+        "items": [
+          "FaceTime HD camera",
+          "Touch ID for secure authentication",
+          "Landscape stereo speakers",
+          "Video mirroring and video out support",
+          "Apple Pencil (1st generation) support"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0002",
+    "title": "Samsung Galaxy S24 Ultra 5G: 12GB RAM, 256GB Storage, 6.8-inch Dynamic AMOLED 2X Display, S Pen, 200MP Camera — Titanium Black",
+    "MRP": 129999.0,
+    "Price": 109999.0,
+    "rating": 4.5,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634974/Croma%20Assets/Communication/Mobiles/Images/303840_rlonbq.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634974/Croma%20Assets/Communication/Mobiles/Images/303840_rlonbq.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1706510121/Croma%20Assets/Videos/2023%20Videos/303840_zg8udy.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1706712996/Croma%20Assets/Communication/Mobiles/Images/303840_1_v6ytsw.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1706712999/Croma%20Assets/Communication/Mobiles/Images/303840_2_zkx0xv.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634975/Croma%20Assets/Communication/Mobiles/Images/303840_3_iu9dv8.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634975/Croma%20Assets/Communication/Mobiles/Images/303840_4_szvpjn.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634976/Croma%20Assets/Communication/Mobiles/Images/303840_5_r0xbtm.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705634978/Croma%20Assets/Communication/Mobiles/Images/303840_7_a33yp1.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708316892/Croma%20Assets/Communication/Mobiles/Images/303840_13_ouxmiy.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708316891/Croma%20Assets/Communication/Mobiles/Images/303840_14_jv0qoj.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708002789/Croma%20Assets/Communication/Mobiles/Images/303840_16_mpongv.png"
+    ],
+    "Brand": "Samsung",
+    "Category": "SmartPhones",
+    "Key Features": [
+      "6.8-inch Dynamic AMOLED 2X Display, 120 Hz Refresh Rate",
+      "256GB Storage, 12GB RAM",
+      "Qualcomm Snapdragon 8 Gen 3 Processor",
+      "200MP Quad Camera, 12MP Front Camera",
+      "5000mAh Battery with 45W Fast Charging",
+      "S Pen Included",
+      "Android 14 with One UI 6.1"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "6.8-inch Dynamic AMOLED 2X",
+          "QHD+ resolution (3120 x 1440)",
+          "120 Hz adaptive refresh rate",
+          "HDR10+ support",
+          "Gorilla Glass Armor"
+        ]
+      },
+      {
+        "section": "Processor",
+        "items": ["Qualcomm Snapdragon 8 Gen 3", "Octa-core CPU", "Adreno GPU"]
+      },
+      {
+        "section": "Camera",
+        "items": [
+          "200MP Wide, 12MP Ultra-Wide, 10MP Telephoto, 50MP Periscope",
+          "12MP Front Camera",
+          "8K video recording at 30 fps",
+          "Super HDR, Nightography"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "5000mAh battery",
+          "45W wired charging",
+          "15W wireless charging",
+          "Reverse wireless charging"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0003",
+    "title": "Apple MacBook Air M2: 13.6-inch Liquid Retina Display, 8GB RAM, 256GB SSD, Apple M2 Chip — Midnight",
+    "MRP": 119900.0,
+    "Price": 99900.0,
+    "rating": 4.7,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750624/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_0_ztyotl.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750624/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_0_ztyotl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1666168028/Croma%20Assets/Videos/Medium%20Appliances/256603_qzf0mp.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1668509309/Croma%20Assets/Videos/Unboxing/256603_vv58r5.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1731581848/Croma%20Assets/Videos/2024%20Videos/256603_mswum9.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750627/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_1_jjvnmm.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750628/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_2_ctewje.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750630/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_3_g6ba8h.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750631/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_4_p8t16m.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750633/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_5_zxz4jo.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750636/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_6_flmrie.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750639/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_7_jlqupv.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750641/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_8_b4vnyy.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750642/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_9_g0pnyu.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747750645/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256603_10_f9rz0q.png"
+    ],
+    "Brand": "Apple",
+    "Category": "Laptops",
+    "Key Features": [
+      "13.6-inch Liquid Retina Display",
+      "Apple M2 Chip with 8-core CPU, 8-core GPU",
+      "8GB Unified Memory, 256GB SSD",
+      "Up to 18 Hours Battery Life",
+      "1080p FaceTime HD Camera",
+      "macOS Ventura",
+      "MagSafe Charging"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "13.6-inch Liquid Retina",
+          "2560 x 1664 resolution",
+          "500 nits brightness",
+          "True Tone technology"
+        ]
+      },
+      {
+        "section": "Processor",
+        "items": [
+          "Apple M2 Chip",
+          "8-core CPU (4 performance, 4 efficiency)",
+          "8-core GPU",
+          "16-core Neural Engine"
+        ]
+      },
+      {
+        "section": "Storage & Memory",
+        "items": ["8GB unified memory", "256GB SSD storage"]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "Up to 18 hours battery life",
+          "52.6-watt-hour lithium-polymer battery",
+          "30W USB-C Power Adapter"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0004",
+    "title": "Apple Watch Series 9: 45mm GPS, Aluminum Case, Sport Band, A17 Pro Chip — Midnight",
+    "MRP": 44900.0,
+    "Price": 39900.0,
+    "rating": 4.6,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713212/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_0_bask7w.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713212/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_0_bask7w.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1708671968/Croma%20Assets/Videos/2024%20Videos/300965_lrgexx.mov",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713217/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_1_ehz50s.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713219/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_2_jaimmi.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713223/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_3_eslt4u.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713225/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_4_ik368g.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713226/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_5_p5bsyl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713229/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_6_mametg.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713232/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_7_ygjchj.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713233/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_8_swlrn9.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713236/Croma%20Assets/Communication/Wearable%20Devices/Images/300965_9_rc4ucg.png"
+    ],
+    "Brand": "Apple",
+    "Category": "Wearables",
+    "Key Features": [
+      "45mm Aluminum Case with Sport Band",
+      "S9 SiP with 64-bit dual-core processor",
+      "Retina LTPO OLED Display, up to 2000 nits",
+      "Blood Oxygen & ECG Apps",
+      "Up to 18 Hours Battery Life",
+      "watchOS 10",
+      "Water Resistant up to 50m"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "Retina LTPO OLED",
+          "Up to 2000 nits brightness",
+          "Always-On Display"
+        ]
+      },
+      {
+        "section": "Processor",
+        "items": [
+          "Apple S9 SiP",
+          "64-bit dual-core processor",
+          "4-core Neural Engine"
+        ]
+      },
+      {
+        "section": "Health Features",
+        "items": [
+          "Blood Oxygen sensor",
+          "ECG app",
+          "Heart rate monitoring",
+          "Fall detection"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "Up to 18 hours battery life",
+          "Fast charging via USB-C magnetic cable"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0005",
+    "title": "Samsung QN90D 55-inch Neo QLED 4K Smart TV: 120Hz, Quantum HDR+, Dolby Atmos — Black",
+    "MRP": 159990.0,
+    "Price": 129990.0,
+    "rating": 4.8,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146513/Croma%20Assets/Entertainment/Television/Images/305602_0_k9mkk2.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146513/Croma%20Assets/Entertainment/Television/Images/305602_0_k9mkk2.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1736916712/Croma%20Assets/Videos/2025%20Videos/305602_xhjlfn.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1740478312/Croma%20Assets/Videos/2025%20Videos/305602_0_zzyiop.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146515/Croma%20Assets/Entertainment/Television/Images/305602_4_ltlxrp.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146517/Croma%20Assets/Entertainment/Television/Images/305602_5_sywpxk.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146519/Croma%20Assets/Entertainment/Television/Images/305602_6_gdgici.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146522/Croma%20Assets/Entertainment/Television/Images/305602_7_rv8oim.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146523/Croma%20Assets/Entertainment/Television/Images/305602_8_czqe4e.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146524/Croma%20Assets/Entertainment/Television/Images/305602_9_tbhh89.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146525/Croma%20Assets/Entertainment/Television/Images/305602_10_fypu05.jpg",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146528/Croma%20Assets/Entertainment/Television/Images/305602_11_wgjoin.jpg",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146529/Croma%20Assets/Entertainment/Television/Images/305602_12_rhlht1.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146531/Croma%20Assets/Entertainment/Television/Images/305602_13_a2qk9k.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146533/Croma%20Assets/Entertainment/Television/Images/305602_14_tvlpym.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146535/Croma%20Assets/Entertainment/Television/Images/305602_15_dmdydh.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146537/Croma%20Assets/Entertainment/Television/Images/305602_16_oh0wyq.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146538/Croma%20Assets/Entertainment/Television/Images/305602_17_syntrn.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146539/Croma%20Assets/Entertainment/Television/Images/305602_18_osltpl.jpg",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146540/Croma%20Assets/Entertainment/Television/Images/305602_19_fxt88d.jpg",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1750146541/Croma%20Assets/Entertainment/Television/Images/305602_20_dmejl7.jpg"
+    ],
+    "Brand": "Samsung",
+    "Category": "Displays/TVs",
+    "Key Features": [
+      "55-inch Neo QLED 4K Display, 120Hz",
+      "Quantum HDR+",
+      "Dolby Atmos Sound",
+      "Tizen OS with Smart Hub",
+      "4 HDMI Ports, 2 USB Ports",
+      "Anti-Reflection Screen",
+      "Gaming Hub with Motion Xcelerator Turbo+"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "55-inch Neo QLED 4K",
+          "3840 x 2160 resolution",
+          "120Hz refresh rate",
+          "Quantum Mini LED"
+        ]
+      },
+      {
+        "section": "Audio",
+        "items": [
+          "Dolby Atmos",
+          "40W 2.2 channel speakers",
+          "Object Tracking Sound+"
+        ]
+      },
+      {
+        "section": "Smart Features",
+        "items": [
+          "Tizen OS",
+          "Samsung Smart Hub",
+          "Voice Assistant (Bixby, Alexa, Google Assistant)"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": ["4 HDMI ports", "2 USB ports", "Wi-Fi 5, Bluetooth 5.2"]
+      }
+    ]
+  },
+  {
+    "id": "prod0006",
+    "title": "LG UltraGear 27GN950-B 27-inch 4K UHD Gaming Monitor: 144Hz, Nano IPS, G-Sync — Black",
+    "MRP": 59999.0,
+    "Price": 44999.0,
+    "rating": 4.5,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_jcxuiu.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_jcxuiu.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090499/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_3_tvoco9.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_4_axuwgl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090501/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_5_eho9sl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_6_cw60c5.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_7_wrgi56.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1723090500/Croma%20Assets/Computers%20Peripherals/Monitor/Images/308940_9_dssdkn.png"
+    ],
+    "Brand": "LG",
+    "Category": "Displays/Monitors",
+    "Key Features": [
+      "27-inch 4K UHD Nano IPS Display",
+      "144Hz Refresh Rate",
+      "NVIDIA G-Sync Compatible",
+      "1ms Response Time",
+      "HDR10 Support",
+      "2 HDMI, 1 DisplayPort, USB Hub",
+      "Ergonomic Stand"
+    ],
+    "specifications": [
+      {
+        "section": "Display",
+        "items": [
+          "27-inch Nano IPS",
+          "3840 x 2160 resolution",
+          "144Hz refresh rate",
+          "HDR10"
+        ]
+      },
+      {
+        "section": "Performance",
+        "items": [
+          "1ms response time",
+          "NVIDIA G-Sync Compatible",
+          "FreeSync Premium Pro"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": ["2 HDMI ports", "1 DisplayPort", "USB 3.0 hub"]
+      },
+      {
+        "section": "Design",
+        "items": [
+          "Height, tilt, pivot adjustable stand",
+          "VESA mount compatible"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0007",
+    "title": "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
+    "MRP": 15999.0,
+    "Price": 12999.0,
+    "rating": 4.3,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1726588413/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/305731_b47dcl.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1726588413/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/305731_b47dcl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1726588413/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/305731_3_frv6og.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1726588413/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/305731_5_ws3zfv.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1726588413/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/305731_6_bwp7mm.png"
+    ],
+    "Brand": "Epson",
+    "Category": "ComputerAccessories/Printers",
+    "Key Features": [
+      "Print, Scan, Copy",
+      "Wi-Fi, USB Connectivity",
+      "Up to 33 ppm (Black), 15 ppm (Color)",
+      "4500 pages (Black), 7500 pages (Color) Yield",
+      "Borderless Printing up to A4",
+      "EcoTank Refillable Ink System",
+      "Compact Design"
+    ],
+    "specifications": [
+      {
+        "section": "Printing",
+        "items": [
+          "Ink Tank System",
+          "Up to 33 ppm (Black), 15 ppm (Color)",
+          "Borderless printing up to A4"
+        ]
+      },
+      {
+        "section": "Scanning",
+        "items": ["Flatbed scanner", "1200 x 2400 dpi resolution"]
+      },
+      {
+        "section": "Connectivity",
+        "items": ["Wi-Fi, Wi-Fi Direct", "USB 2.0"]
+      },
+      {
+        "section": "Ink Yield",
+        "items": ["4500 pages (Black)", "7500 pages (Color)"]
+      }
+    ]
+  },
+  {
+    "id": "prod0008",
+    "title": "Bose QuietComfort Ultra Wireless Noise Cancelling Headphones — Black",
+    "MRP": 34900.0,
+    "Price": 29900.0,
+    "rating": 4.9,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384751/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_0_kevmaz.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384751/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_0_kevmaz.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1708511771/Croma%20Assets/Videos/2024%20Videos/303684_anwveq.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384754/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_1_ciyhvm.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384755/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_4_sb4yjt.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384756/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_5_ciqlru.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384758/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_6_nlve96.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384763/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_7_eascse.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384764/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_8_fiwjkt.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384766/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_9_lyhbiy.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384767/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_10_hcu8ly.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1742384770/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/303684_11_ntdvlh.png"
+    ],
+    "Brand": "Bose",
+    "Category": "AudioDevices/Headphones",
+    "Key Features": [
+      "Active Noise Cancellation",
+      "Immersive Audio",
+      "Up to 24 Hours Battery Life",
+      "Bluetooth 5.3",
+      "CustomTune Technology",
+      "USB-C Charging",
+      "Multi-Point Connectivity"
+    ],
+    "specifications": [
+      {
+        "section": "Audio",
+        "items": [
+          "Active Noise Cancellation",
+          "Immersive Audio with spatial sound",
+          "CustomTune calibration"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "Up to 24 hours playback",
+          "2.5 hours full charge via USB-C",
+          "15-min quick charge for 2 hours"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": ["Bluetooth 5.3", "Multi-point connection", "3.5mm audio jack"]
+      },
+      {
+        "section": "Design",
+        "items": [
+          "Over-ear design",
+          "Foldable for portability",
+          "Carrying case included"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0009",
+    "title": "Sony WF-1000XM5 Truly Wireless Earbuds: Noise Cancelling, 8mm Driver, Hi-Res Audio — Black",
+    "MRP": 29990.0,
+    "Price": 24990.0,
+    "rating": 4.7,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788316/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_0_eu3o0d.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788316/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_0_eu3o0d.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1710486632/Croma%20Assets/Videos/2024%20Videos/301580_lrljtn.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788322/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_1_htdlxx.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788319/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_2_ubuqrj.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788320/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_3_omryxq.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788311/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_8_cwm5p8.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788312/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_9_shtz3u.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718788314/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/301580_10_bpguzf.png"
+    ],
+    "Brand": "Sony",
+    "Category": "AudioDevices/Earbuds",
+    "Key Features": [
+      "Active Noise Cancellation",
+      "8mm Dynamic Driver",
+      "Hi-Res Audio Wireless",
+      "Up to 8 Hours Battery Life (24 with Case)",
+      "IPX4 Water Resistance",
+      "Bluetooth 5.2",
+      "DSEE Extreme Audio Upscaling"
+    ],
+    "specifications": [
+      {
+        "section": "Audio",
+        "items": [
+          "8mm dynamic driver",
+          "Hi-Res Audio Wireless",
+          "DSEE Extreme upscaling",
+          "360 Reality Audio"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "8 hours (ANC on)",
+          "24 hours with charging case",
+          "Quick charge: 5 min for 1 hour"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": [
+          "Bluetooth 5.2",
+          "Multipoint connection",
+          "LDAC codec support"
+        ]
+      },
+      {
+        "section": "Design",
+        "items": [
+          "IPX4 water resistance",
+          "Ergonomic fit",
+          "Charging case with USB-C"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0010",
+    "title": "JBL Bar 9.1 True Wireless Surround Soundbar with Dolby Atmos — Black",
+    "MRP": 99999.0,
+    "Price": 79999.0,
+    "rating": 4.6,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442173/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_0_apvhsl.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442173/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_0_apvhsl.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1668588270/Croma%20Assets/Videos/Medium%20Appliances/226032_jylfuq.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1668681551/Croma%20Assets/Videos/3D/226032_fhzkhe.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1671697047/Croma%20Assets/Videos/2022%20Videos/Lot-7/226032_1_ljxmbo.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442176/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_1_bsy0e0.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442176/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_2_kf9uwn.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1675866654/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/226032_3_kgsb6h.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442178/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_4_wqvig1.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442180/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_6_gbmhd2.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442181/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_7_do0bto.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442184/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_8_jdk1ek.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442186/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_9_aaruzg.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442188/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_10_tac8kx.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442190/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_11_iozn8h.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442193/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_12_befbfz.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442196/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_13_vi7al8.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442197/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_14_smmak8.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442200/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_15_oxcqiw.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442201/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_16_wycu6c.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442203/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_17_rwoin2.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442205/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_18_aicrjh.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1716442209/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/226032_20_v9tyv3.png"
+    ],
+    "Brand": "JBL",
+    "Category": "AudioDevices/SoundBars",
+    "Key Features": [
+      "9.1 Channel Surround Sound",
+      "Dolby Atmos and DTS:X",
+      "820W Total Power Output",
+      "Detachable Wireless Surround Speakers",
+      "Built-in Chromecast and AirPlay 2",
+      "Bluetooth 4.2, HDMI eARC",
+      "10-inch Wireless Subwoofer"
+    ],
+    "specifications": [
+      {
+        "section": "Audio",
+        "items": [
+          "9.1 channel configuration",
+          "Dolby Atmos, DTS:X",
+          "820W total output"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": [
+          "Bluetooth 4.2",
+          "HDMI eARC",
+          "Chromecast, AirPlay 2",
+          "Optical input"
+        ]
+      },
+      {
+        "section": "Design",
+        "items": [
+          "Detachable surround speakers",
+          "10-inch wireless subwoofer",
+          "Wall-mountable"
+        ]
+      },
+      {
+        "section": "Power",
+        "items": [
+          "Rechargeable battery for surround speakers",
+          "Up to 10 hours playback"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod0011",
+    "title": "Logitech MX Master 3S Wireless Mouse — Graphite",
+    "MRP": 12495.0,
+    "Price": 9995.0,
+    "rating": 4.8,
+    "mainImage": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404219/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_0_rmm57f.png",
+    "images": [
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404219/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_0_rmm57f.png",
+      "https://media-ik.croma.com/prod/https://media.croma.com/video/upload/v1675272298/Croma%20Assets/Videos/2023%20Videos/258454_jchfv6.mp4",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404230/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_1_qefb35.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404228/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_2_bqgv02.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404222/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_3_e89d1p.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404226/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_4_dffrap.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404224/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_6_byqwlv.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404218/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_7_ikcyud.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404200/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_9_rd8evl.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404202/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_10_ocgsql.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404204/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_11_nyn9uo.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404206/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_12_ce9nzu.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404208/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_13_wrfeel.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404212/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_14_n27jvg.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404213/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_15_jz0ehn.png?tr=w-640",
+      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1681404216/Croma%20Assets/Computers%20Peripherals/Computer%20Accessories%20and%20Tablets%20Accessories/Images/258454_16_iyfw1p.png?tr=w-640"
+    ],
+    "Brand": "Logitech",
+    "Category": "ComputerAccessories/Mouse",
+    "Key Features": [
+      "8000 DPI Sensor",
+      "MagSpeed Electromagnetic Scrolling",
+      "USB-C Charging, Up to 70 Days Battery",
+      "Bluetooth and Logi Bolt USB Receiver",
+      "Multi-Device Pairing (Up to 3 Devices)",
+      "Ergonomic Design",
+      "Customizable Buttons"
+    ],
+    "specifications": [
+      {
+        "section": "Sensor",
+        "items": [
+          "Darkfield high-precision sensor",
+          "8000 DPI resolution",
+          "Tracks on any surface, including glass"
+        ]
+      },
+      {
+        "section": "Connectivity",
+        "items": [
+          "Bluetooth Low Energy",
+          "Logi Bolt USB receiver",
+          "Multi-device pairing (up to 3)"
+        ]
+      },
+      {
+        "section": "Battery",
+        "items": [
+          "Rechargeable via USB-C",
+          "Up to 70 days on full charge",
+          "1-min charge for 3 hours use"
+        ]
+      },
+      {
+        "section": "Design",
+        "items": [
+          "Ergonomic shape",
+          "7 customizable buttons",
+          "Side scroll wheel"
+        ]
+      }
+    ]
+  }
+]

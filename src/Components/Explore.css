@@ -88,7 +88,7 @@
   content: "";
   display: block;
   position: absolute;
-  left: 3.5px; /* Adjusted from 5px */
+  left: 3px; /* Adjusted from 5px */
   top: 0px; /* Adjusted from 1px */
   width: 4px;
   height: 8px; /* Reduced from 9px */
@@ -116,7 +116,7 @@
   width: 100%;
   margin-right: 10px;
   max-width: 80%;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 20px 10px 35px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -193,4 +193,18 @@
     display: flex;
     margin-bottom: 10px;
   }
+}
+.explore-sidebar-product-brands {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Add consistent spacing between items */
+  border-radius: 10px;
+  background: rgba(11, 20, 17, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0px 4px 0 rgba(39, 183, 88, 0.15);
+  max-height: 300px;
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
 }
