@@ -73,14 +73,14 @@
 }
 
 .rating-stars {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   color: #27b758;
   letter-spacing: 0px;
   transition: all 0.2s;
 }
 
 .rating-count {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: rgba(156, 204, 196, 0.7);
   margin-top: 2px;
   transition: all 0.2s;
@@ -88,6 +88,8 @@
 
 .product-price {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: baseline;
   padding-right: 20px;
   height: 100%;
@@ -96,14 +98,13 @@
 }
 
 .price-currency {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-right: 2px;
   transition: all 0.2s;
 }
 
 .price-value {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 800;
   transition: all 0.2s;
 }
@@ -117,4 +118,13 @@ a {
   text-decoration: none;
   color: inherit;
   display: contents; /* This will make the link not affect layout */
+}
+.product-price-rating-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 20px;
+  transition: all 0.2s;
 }

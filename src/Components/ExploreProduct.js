@@ -46,15 +46,17 @@ function ExploreProduct({ image, title, price, product_id, rating }) {
         className="product-image"
       />
       <h3 className="product-title">{title || "Title not defined"}</h3>
-      <div className="product-rating-container">
-        <div className="rating-stars">{renderRatingStars(rating)}</div>
-        <span className="rating-count">
-          {rating && rating > 0 ? `(${rating.toFixed(1)})` : "(No ratings)"}
-        </span>
-      </div>
-      <div className="product-price">
-        <span className="price-currency">₹</span>
-        <span className="price-value">{formatPrice(price)}</span>
+      <div className="product-price-rating-container">
+        <div className="product-rating-container">
+          <div className="rating-stars">{renderRatingStars(rating)}</div>
+          <span className="rating-count">
+            {rating && rating > 0 ? `(${rating.toFixed(1)})` : "(No ratings)"}
+          </span>
+        </div>
+        <div className="product-price">
+          <span className="price-currency">₹</span>
+          <span className="price-value">{formatPrice(price)}</span>
+        </div>
       </div>
     </div>
   );
