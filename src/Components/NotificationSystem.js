@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid"; // You might need to install this: npm install uuid
 import Lottie from "lottie-react";
 import "./NotificationSystem.css";

@@ -5,7 +5,6 @@ import {
   Routes,
   Route,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 import { StateProvider, useStateValue } from "./StateProvider";
 import reducer, { initialState } from "./reducer";

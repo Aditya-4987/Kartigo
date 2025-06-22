@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Counter from "../assets/ReactBits/Components-files/Counter/Counter";
 import "./ProductDetails.css";
 import { getProductById, formatPrice } from "../utils/productData";
 import { useStateValue } from "../StateProvider";
-import Lottie from "lottie-react";
 import { useNotification } from "./NotificationSystem";
 
 // Remove infinity animation, keep only addToCart animation
@@ -18,7 +17,6 @@ function ProductDetails({ isModal }) {
   // Existing state variables
   const { product_id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const [quantity, setQuantity] = useState(1);
   const [closing, setClosing] = useState(false);
   const [product, setProduct] = useState(null);
@@ -31,9 +29,6 @@ function ProductDetails({ isModal }) {
 
   // Simplify animation state
   const [isAddingToCart, setIsAddingToCart] = useState(false);
-  // Remove infinityRef, keep only cartAnimRef
-  // const infinityRef = useRef(null); <- Remove this line
-  const cartAnimRef = useRef(null);
 
   useEffect(() => {
     const fetchedProduct = getProductById(product_id);

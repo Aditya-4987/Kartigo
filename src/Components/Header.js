@@ -31,28 +31,6 @@ function Header() {
 
   // Initialize animations with error handling
   useEffect(() => {
-    // Add a safe play function to handle animation errors
-    const safeLottiePlay = (ref) => {
-      if (ref && ref.current) {
-        try {
-          ref.current.play();
-        } catch (error) {
-          console.error("Lottie animation error:", error);
-        }
-      }
-    };
-
-    const safeSetDirection = (ref, direction) => {
-      if (ref && ref.current) {
-        try {
-          ref.current.setDirection(direction);
-          safeLottiePlay(ref);
-        } catch (error) {
-          console.error("Lottie animation error:", error);
-        }
-      }
-    };
-
     // Replace direct animation calls with safe versions
     const timer = setTimeout(() => {
       if (menuLottieRef.current) menuLottieRef.current.pause();
@@ -60,18 +38,6 @@ function Header() {
       if (searchLottieRef.current) searchLottieRef.current.pause();
       if (cartLottieRef.current) cartLottieRef.current.pause();
     }, 500);
-
-    // Add event handlers with safe animation functions
-    const handleCartMouseEnter = () => {
-      if (cartLottieRef.current) {
-        try {
-          cartLottieRef.current.goToAndStop(0, true);
-          safeSetDirection(cartLottieRef, 1);
-        } catch (error) {
-          console.error("Cart animation error:", error);
-        }
-      }
-    };
 
     return () => clearTimeout(timer);
   }, []);
