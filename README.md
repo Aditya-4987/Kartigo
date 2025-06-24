@@ -19,7 +19,11 @@ Kartigo is a modern e-commerce web application built with React. It allows users
 
 ## Demo
 
-> _Add a link or screenshots here if available._
+<p>
+  <a href="https://kartigo-nine.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit-blue?style=for-the-badge&logo=vercel" alt="Live Demo" />
+  </a>
+</p>
 
 ## Technologies Used
 
