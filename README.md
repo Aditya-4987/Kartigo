@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Kartigo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kartigo is a modern e-commerce web application built with React. It allows users to browse, search, and manage products with a user-friendly interface inspired by real-world e-commerce giants.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18.x-blue?logo=react)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Browse a wide range of real-world products
+- Add or remove items from the cart
+- Modern, responsive UI
+- Product details with images and videos (served via Croma servers)
+- Search and filter products
+- Cart management
+- Notification system for user actions
+- Built with React and Create React App
+- Firebase integration for authentication and data (see below)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> _Add a link or screenshots here if available._
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React (Create React App)
+- JavaScript (ES6+)
+- CSS3
+- Firebase (for authentication and backend)
+- Croma servers (for product media)
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (>= 14.x)
+- npm (>= 6.x)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+Clone the repository and install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/Aditya-4987/Kartigo.git
+cd Kartigo
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Firebase Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+2. Add your Firebase configuration to `src/Components/firebase.js` or `firebaseConfig.js` as required.
+3. Update `firebase.json` if you plan to deploy with Firebase Hosting.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Running the App
 
-## Learn More
+Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-### Code Splitting
+### Building for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To build the app for production:
 
-### Analyzing the Bundle Size
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The optimized build will be in the `build` folder.
 
-### Making a Progressive Web App
+## Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `npm start` — Run the app in development mode
+- `npm run build` — Build the app for production
+- `npm test` — Run tests (if available)
+- `npm run eject` — Eject Create React App configuration (not recommended)
 
-### Advanced Configuration
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `/src` — Main source code
+  - `App.js` — Main app component
+  - `Components/` — UI components (authentication, cart, product details, etc.)
+  - `assets/` — Icons, images, and animations
+  - `utils/` — Utility functions and product data
+  - `tempDatabase_json/` — Sample product data (JSON)
+- `/public` — Static assets (HTML, manifest, icons, fonts)
+- `/build` — Production build output (after running `npm run build`)
+- `firebase.json` — Firebase configuration
+- `package.json` — Project metadata and scripts
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT](LICENSE) license.
+
+---
+
+### Troubleshooting
+
+#### `npm run build` fails to minify
+
+See: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Contact
+
+For questions or feedback, please open an issue or contact [Aditya-4987](https://github.com/Aditya-4987).
