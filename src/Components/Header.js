@@ -39,14 +39,31 @@ function Header() {
   // Search handler
   const handleSearchChange = (e) => {
     const value = e.target.value;
+    const previousValue = searchValue;
     setSearchValue(value);
 
+    // Play animation based on text content change
     if (value.trim() === "") {
+      // If text is cleared, play animation in reverse
+      if (previousValue.trim() !== "" && searchLottieRef.current) {
+        searchLottieRef.current.setDirection(-1);
+        searchLottieRef.current.play();
+      }
       setSearchResults([]);
       setShowRecommendations(false);
-    } else {
+    } else if (previousValue.trim() === "" && value.trim() !== "") {
+      // If text is added to an empty field, play animation forward
+      if (searchLottieRef.current) {
+        searchLottieRef.current.setDirection(1);
+        searchLottieRef.current.play();
+      }
       const results = searchProducts(value);
       setSearchResults(results.slice(0, 3)); // Get only top 3 results
+      setShowRecommendations(true);
+    } else {
+      // Just update results without changing animation
+      const results = searchProducts(value);
+      setSearchResults(results.slice(0, 3));
       setShowRecommendations(true);
     }
   };
@@ -61,6 +78,14 @@ function Header() {
       });
       navigate("/explore");
       setShowRecommendations(false);
+      
+      // Don't clear the search box here to maintain state
+      // But if we want to clear it later, we can uncomment:
+      // setSearchValue("");
+      // if (searchLottieRef.current) {
+      //   searchLottieRef.current.setDirection(-1);
+      //   searchLottieRef.current.play();
+      // }
     }
   };
 
@@ -148,14 +173,16 @@ function Header() {
 
   // Search icon logic
   const handleSearchMouseEnter = () => {
-    if (!searchFocused && searchLottieRef.current) {
+    // Only play animation on hover if there's no text and not focused
+    if (!searchFocused && searchValue.trim() === "" && searchLottieRef.current) {
       searchLottieRef.current.setDirection(1);
       searchLottieRef.current.play();
     }
   };
 
   const handleSearchMouseLeave = () => {
-    if (!searchFocused && searchLottieRef.current) {
+    // Only play animation on leave if there's no text and not focused
+    if (!searchFocused && searchValue.trim() === "" && searchLottieRef.current) {
       searchLottieRef.current.setDirection(-1);
       searchLottieRef.current.play();
     }
@@ -163,7 +190,8 @@ function Header() {
 
   const handleSearchFocus = () => {
     setSearchFocused(true);
-    if (searchLottieRef.current) {
+    // Only play animation if there's no text yet
+    if (searchValue.trim() === "" && searchLottieRef.current) {
       searchLottieRef.current.setDirection(1);
       searchLottieRef.current.play();
     }
@@ -171,7 +199,8 @@ function Header() {
 
   const handleSearchBlur = () => {
     setSearchFocused(false);
-    if (searchLottieRef.current) {
+    // Only play animation in reverse if there's no text
+    if (searchValue.trim() === "" && searchLottieRef.current) {
       searchLottieRef.current.setDirection(-1);
       searchLottieRef.current.play();
     }
@@ -289,9 +318,7 @@ function Header() {
               }, 200);
             }}
             aria-label="Search"
-          />
-        </form>
-        <Lottie
+          /><Lottie
           lottieRef={searchLottieRef}
           animationData={searchToX}
           loop={false}
@@ -299,6 +326,8 @@ function Header() {
           className="header__search__icon"
           onClick={handleSearchSubmit}
         />
+        </form>
+        
 
         {/* Search Recommendations */}
         {showRecommendations && searchResults.length > 0 && (
