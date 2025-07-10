@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"command": "npm start",
+			"group": "start",
+			"isBackground": true,
+			"label": "Start React App",
+			"problemMatcher": [],
+			"type": "shell"
+		}
+	]
+}

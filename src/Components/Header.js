@@ -12,6 +12,7 @@ import ShinyText from "../assets/ReactBits/TextAnimations-files/ShinyText/ShinyT
 import { useStateValue } from "../StateProvider";
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
+import { searchProducts } from "../utils/productData";
 
 function Header() {
   const menuLottieRef = useRef();
@@ -19,6 +20,7 @@ function Header() {
   const searchLottieRef = useRef();
   const cartLottieRef = useRef();
   const userAvatarLottieRef = useRef();
+  const searchInputRef = useRef(null);
   const [searchFocused, setSearchFocused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -28,6 +30,49 @@ function Header() {
   const [prevCartCount, setPrevCartCount] = useState(0);
   const [cartCountAnimating, setCartCountAnimating] = useState(false);
   const navigate = useNavigate();
+
+  // Search functionality
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [showRecommendations, setShowRecommendations] = useState(false);
+
+  // Search handler
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+
+    if (value.trim() === "") {
+      setSearchResults([]);
+      setShowRecommendations(false);
+    } else {
+      const results = searchProducts(value);
+      setSearchResults(results.slice(0, 3)); // Get only top 3 results
+      setShowRecommendations(true);
+    }
+  };
+
+  // Handle search submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchValue.trim() !== "") {
+      dispatch({
+        type: "SET_SEARCH_QUERY",
+        query: searchValue,
+      });
+      navigate("/explore");
+      setShowRecommendations(false);
+    }
+  };
+
+  // Handle recommendation click
+  const handleRecommendationClick = (productId) => {
+    dispatch({
+      type: "SET_SEARCH_QUERY",
+      query: searchValue,
+    });
+    setShowRecommendations(false);
+    navigate("/explore", { state: { redirectToProduct: productId } });
+  };
 
   // Initialize animations with error handling
   useEffect(() => {
@@ -227,21 +272,62 @@ function Header() {
         onMouseEnter={handleSearchMouseEnter}
         onMouseLeave={handleSearchMouseLeave}
       >
-        <input
-          type="text"
-          placeholder="Search..."
-          className="header__search__input"
-          onFocus={handleSearchFocus}
-          onBlur={handleSearchBlur}
-          aria-label="Search"
-        />
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            className="header__search__input"
+            ref={searchInputRef}
+            value={searchValue}
+            onChange={handleSearchChange}
+            onFocus={handleSearchFocus}
+            onBlur={(e) => {
+              // Delay hiding recommendations to allow clicks
+              setTimeout(() => {
+                setShowRecommendations(false);
+                handleSearchBlur();
+              }, 200);
+            }}
+            aria-label="Search"
+          />
+        </form>
         <Lottie
           lottieRef={searchLottieRef}
           animationData={searchToX}
           loop={false}
           autoplay={false}
           className="header__search__icon"
+          onClick={handleSearchSubmit}
         />
+
+        {/* Search Recommendations */}
+        {showRecommendations && searchResults.length > 0 && (
+          <div className="header__search-recommendations">
+            {searchResults.map((product) => (
+              <div
+                key={product.id}
+                className="header__search-recommendation-item"
+                onClick={() => handleRecommendationClick(product.id)}
+              >
+                <img
+                  src={product.mainImage}
+                  alt={product.title}
+                  className="header__search-recommendation-image"
+                />
+                <div className="header__search-recommendation-info">
+                  <div className="header__search-recommendation-title">
+                    {product.title.length > 60
+                      ? product.title.substring(0, 60) + "..."
+                      : product.title}
+                  </div>
+                  <div className="header__search-recommendation-price">
+                    ₹{product.Price.toLocaleString("en-IN")}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Cart Button with animated counter */}

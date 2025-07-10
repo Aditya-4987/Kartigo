@@ -4,6 +4,28 @@ export const getAllProducts = () => {
   return productsData;
 };
 
+// New function to search products by query
+export const searchProducts = (query) => {
+  if (!query || typeof query !== 'string' || query.trim() === '') {
+    return [];
+  }
+
+  const searchTerms = query.toLowerCase().trim().split(/\s+/);
+  
+  return productsData.filter((product) => {
+    const title = product.title?.toLowerCase() || '';
+    const brand = product.Brand?.toLowerCase() || '';
+    const category = product.Category?.toLowerCase() || '';
+
+    // Check if all search terms are found in the product data
+    return searchTerms.every(term => 
+      title.includes(term) || 
+      brand.includes(term) || 
+      category.includes(term)
+    );
+  });
+};
+
 export const getProductById = (id) => {
   return productsData.find((product) => product.id === id) || null;
 };

@@ -1,6 +1,10 @@
 export const initialState = {
   cart: [],
   user: null,
+  search: {
+    query: "",
+    isActive: false,
+  },
 };
 
 // Selector for calculating cart total
@@ -18,6 +22,25 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+
+    case "SET_SEARCH_QUERY":
+      return {
+        ...state,
+        search: {
+          ...state.search,
+          query: action.query,
+          isActive: action.query !== "",
+        },
+      };
+      
+    case "CLEAR_SEARCH":
+      return {
+        ...state,
+        search: {
+          query: "",
+          isActive: false,
+        },
       };
 
     case "ADD_TO_CART":

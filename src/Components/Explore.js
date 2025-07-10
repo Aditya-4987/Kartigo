@@ -3,6 +3,8 @@ import PriceSlider from "./PriceSlider";
 import "./Explore.css";
 import ExploreProduct from "./ExploreProduct";
 import { getAllProducts, getProductCategories } from "../utils/productData";
+import { useStateValue } from "../StateProvider";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Explore() {
   const [products, setProducts] = useState([]);
@@ -11,6 +13,9 @@ function Explore() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [priceRange, setPriceRange] = useState({ min: 0, max: 300000 });
+  const [{ search }, dispatch] = useStateValue();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Load all products
@@ -26,7 +31,16 @@ function Explore() {
       ...new Set(allProducts.map((product) => product.Brand).filter(Boolean)),
     ];
     setBrands(allBrands);
-  }, []);
+
+    // Check if we need to redirect to a product detail page
+    if (location.state?.redirectToProduct) {
+      const productId = location.state.redirectToProduct;
+      // Allow the explore page to render first
+      setTimeout(() => {
+        navigate(`/product/${productId}`);
+      }, 100);
+    }
+  }, [location.state, navigate]);
 
   const filteredProducts = products.filter((product) => {
     // Filter by price
@@ -42,7 +56,28 @@ function Explore() {
     const isInSelectedBrand =
       selectedBrands.length === 0 || selectedBrands.includes(product.Brand);
 
-    return isInPriceRange && isInSelectedCategory && isInSelectedBrand;
+    // Filter by search query (if active)
+    let matchesSearch = true;
+    if (search.isActive && search.query) {
+      const searchTerms = search.query.toLowerCase().trim().split(/\s+/);
+      const title = product.title?.toLowerCase() || "";
+      const brand = product.Brand?.toLowerCase() || "";
+      const category = product.Category?.toLowerCase() || "";
+
+      matchesSearch = searchTerms.every(
+        (term) =>
+          title.includes(term) ||
+          brand.includes(term) ||
+          category.includes(term)
+      );
+    }
+
+    return (
+      isInPriceRange &&
+      isInSelectedCategory &&
+      isInSelectedBrand &&
+      matchesSearch
+    );
   });
 
   const handleCategoryChange = (category) => {
@@ -73,6 +108,23 @@ function Explore() {
     <div className="explore">
       <div className="explore-sidebar">
         <div className="explore-sidebar-priceSlider">
+          {/* Search filter (if active) */}
+          {search.isActive && search.query && (
+            <div className="explore-sidebar-search-filter">
+              <h4 className="search-filter-heading">Search for: </h4>
+              <div className="search-filter-query">
+                <span>{search.query}</span>
+                <button
+                  className="search-filter-clear-btn"
+                  onClick={() => dispatch({ type: "CLEAR_SEARCH" })}
+                  aria-label="Clear search"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          )}
+
           <PriceSlider onChange={handlePriceChange} />
 
           {/* Categories filter */}
