@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -19,6 +19,7 @@ import { auth } from "./Components/firebase";
 import Home from "./Components/Home";
 import Cart from "./Components/Cart";
 import { onAuthStateChanged } from "firebase/auth";
+import { loadFromLocalStorage, saveToLocalStorage } from './utils/localStorage';
 
 // This component uses useLocation hook inside Router context
 function AppRoutes() {
@@ -85,6 +86,9 @@ function AppRoutes() {
 
 function App() {
   const [, dispatch] = useStateValue();
+  const [user, setUser] = useState(loadFromLocalStorage('user'));
+  const [cart, setCart] = useState(loadFromLocalStorage('cart', { items: [], total: 0 }));
+  const [orders, setOrders] = useState(loadFromLocalStorage('orders', []));
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -110,6 +114,25 @@ function App() {
     // Cleanup subscription
     return () => unsubscribe();
   }, [dispatch]);
+
+  // When user logs in
+  const handleLogin = (userData) => {
+    setUser(userData);
+    saveToLocalStorage('user', userData);
+  };
+
+  // When cart updates
+  const handleCartUpdate = (cartData) => {
+    setCart(cartData);
+    saveToLocalStorage('cart', cartData);
+  };
+
+  // When order is placed
+  const handleOrder = (orderData) => {
+    const updatedOrders = [...orders, orderData];
+    setOrders(updatedOrders);
+    saveToLocalStorage('orders', updatedOrders);
+  };
 
   return (
     <StateProvider initialState={initialState} reducer={reducer}>

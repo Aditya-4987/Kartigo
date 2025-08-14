@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "./Cart.css";
 import { useStateValue } from "../StateProvider";
 import { getCartTotal, getShippingCost } from "../reducer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formatPrice } from "../utils/productData";
 
 function Cart() {
   const [{ cart }, dispatch] = useStateValue();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const navigate = useNavigate();
 
   const subtotal = getCartTotal(cart);
   const shipping = getShippingCost(subtotal);
@@ -38,12 +39,7 @@ function Cart() {
 
   // Proceed to checkout
   const handleCheckout = () => {
-    setCheckoutLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      alert("Checkout functionality will be implemented in the future!");
-      setCheckoutLoading(false);
-    }, 1500);
+    navigate("/payment");
   };
 
   return (

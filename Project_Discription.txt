@@ -1,0 +1,96 @@
+Kartigo Project Documentation
+============================
+
+## Overview
+
+Kartigo is a modern e-commerce web application designed for seamless product browsing, cart management, and secure checkout. It features user authentication, persistent cart and order history, and integrates Razorpay for payments.
+
+## Features
+
+- Product listing and search
+- Product detail pages with "Buy Now"
+- Add to cart, update quantity, remove items
+- User authentication (login, session management)
+- Persistent cart and order history (localStorage)
+- Checkout flow with Razorpay payment gateway
+- Responsive UI/UX
+- Firebase backend for authenticated user data sync
+
+## Technologies Used
+
+- React (frontend)
+- Firebase (authentication, backend)
+- Razorpay (payment gateway)
+- LocalStorage (client-side persistence)
+- CSS/Styled Components (UI)
+- Node.js (if backend present)
+
+## Folder Structure
+
+- `/src`
+  - `/components` - UI components (Product, Cart, Navbar, etc.)
+  - `/pages` - Route pages (Home, ProductDetail, Cart, Payment, etc.)
+  - `/redux` or `/context` - State management
+  - `/utils` - Helper functions (localStorage, API calls)
+  - `/firebase` - Firebase config and API
+- `/public` - Static assets
+- `/Project_Discription.txt` - Documentation
+
+## Data Flow
+
+- Product data fetched from backend/Firebase.
+- Cart and user session managed in global state (Redux/Context).
+- Cart, user session, and order history persisted in localStorage.
+- On authentication, data syncs with Firebase.
+
+## UI/UX
+
+- Clean, responsive design
+- Intuitive navigation
+- Accessible color scheme and fonts
+- Mobile-friendly layouts
+
+## Authentication
+
+- User login/signup via Firebase
+- Session ID stored in localStorage
+- Authenticated users’ data synced with Firebase
+
+## Payment Gateway Integration
+
+- Razorpay integrated on `/payment` route
+- After cart checkout or "Buy Now", redirect to `/payment`
+- Payment page receives user session, cart, and product details
+- On successful payment, order stored in localStorage and Firebase
+
+## Local Storage Usage
+
+- User session ID
+- Cart details
+- Order history
+- Data loaded from localStorage on app start
+- Data synced to Firebase for authenticated users
+
+## Running the Project
+
+1. Install dependencies: `npm install`
+2. Start development server: `npm start`
+3. Open in browser: `"$BROWSER" http://localhost:3000`
+4. For production build: `npm run build`
+
+## Contribution
+
+- Fork and clone repo
+- Create feature branches
+- Submit pull requests
+
+## Planned Enhancements
+
+- Advanced search and filtering
+- User profile management
+- Order tracking
+- Admin dashboard
+
+---
+
+For any questions or contributions, refer to this documentation or contact the maintainer.
