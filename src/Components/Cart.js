@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.css";
 import { useStateValue } from "../StateProvider";
 import { getCartTotal, getShippingCost } from "../reducer";
 import { Link, useNavigate } from "react-router-dom";
 import { formatPrice } from "../utils/productData";
+import { saveToLocalStorage } from "../utils/localStorage"; // <-- Add this import
 
 function Cart() {
   const [{ cart }, dispatch] = useStateValue();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    saveToLocalStorage('cart', cart);
+  }, [cart]);
 
   const subtotal = getCartTotal(cart);
   const shipping = getShippingCost(subtotal);
@@ -39,7 +45,7 @@ function Cart() {
 
   // Proceed to checkout
   const handleCheckout = () => {
-    navigate("/payment");
+    navigate('/payment');
   };
 
   return (

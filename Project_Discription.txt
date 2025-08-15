@@ -19,78 +19,222 @@ Kartigo is a modern e-commerce web application designed for seamless product bro
 ## Technologies Used
 
 - React (frontend)
-- Firebase (authentication, backend)
-- Razorpay (payment gateway)
-- LocalStorage (client-side persistence)
-- CSS/Styled Components (UI)
-- Node.js (if backend present)
+Kartigo Project Documentation
+============================
 
-## Folder Structure
+## Overview
 
+Kartigo is a modern e‑commerce web application built with React that supports product discovery, detailed product pages, cart management, and a client-side Razorpay checkout. It includes Firebase Authentication for user login, a global state layer for cart/search, and robust client-side persistence using localStorage (user, cart, and orders).
+
+This document reflects the current codebase under `/workspaces/Kartigo` (branch: `main`).
+
+## Key Features
+
+- Home, Explore (catalog) and Product Details pages
+- Add to cart, update quantity, remove items
+- Buy Now (navigates to payment page)
+- Cart with subtotal, shipping, and totals
+- Razorpay checkout on a dedicated `/payment` route
+- Firebase Authentication (email/password) wiring
+- Notifications (custom lightweight system)
+- Responsive layout and accessible interactions
+- Local persistence of user, cart, and order history
+
+## Tech Stack and Versions
+
+- React: 19.1.0
+- React Router DOM: 7.6.2
+- react-scripts: 5.0.1 (CRA runtime)
+- Firebase Web SDK: 11.9.1 (Auth, Firestore)
+- UI/UX: CSS modules scoped by component + assets
+- Animations: lottie-react, framer-motion (select areas)
+- Utilities: localStorage helpers, product data utilities
+
+## Project Structure (selected)
+
+- `/public` – static assets and PWA meta
 - `/src`
-  - `/components` - UI components (Product, Cart, Navbar, etc.)
-  - `/pages` - Route pages (Home, ProductDetail, Cart, Payment, etc.)
-  - `/redux` or `/context` - State management
-  - `/utils` - Helper functions (localStorage, API calls)
-  - `/firebase` - Firebase config and API
-- `/public` - Static assets
-- `/Project_Discription.txt` - Documentation
+  - `App.js` – Router, top-level composition, auth listener, routes
+  - `StateProvider.js` – Context + useReducer provider
+  - `reducer.js` – Global state shape and actions
+  - `/Components`
+    - `Header.js`, `Explore.js`, `Home.js`
+    - `ProductDetails.js` – full product page with Buy Now
+    - `Cart.js` – cart UI and checkout button
+    - `AuthSignIn.js`, `AuthSignUp.js`, `PasswordReset.js`
+    - `NotificationSystem.js/.css`
+    - `firebase.js` – Firebase app, auth, firestore setup
+  - `/pages`
+    - `PaymentPage.jsx` – Razorpay checkout and order persistence
+  - `/utils`
+    - `localStorage.js` – typed helpers
+    - `productData.js` – product fetching, formatting helpers
+  - `/assets` – images, icons, Lottie animations
+- `firebase.json` – Firebase Hosting config (SPA rewrites)
+- `package.json` – dependencies and scripts
 
-## Data Flow
+## Routing and Navigation
 
-- Product data fetched from backend/Firebase.
-- Cart and user session managed in global state (Redux/Context).
-- Cart, user session, and order history persisted in localStorage.
-- On authentication, data syncs with Firebase.
+Router is defined in `App.js` using React Router v7. The app employs a background location pattern to show `ProductDetails` as a modal when opened from other views.
 
-## UI/UX
+Defined routes:
+- `/` → `Home` (+ `Header`)
+- `/explore` → `Explore` (+ `Header`)
+- `/cart` → `Cart` (+ `Header`)
+- `/product/:product_id` → `ProductDetails` (modal or page)
+- `/auth/signin`, `/auth/signup`, `/auth/reset-password`
+- `/payment` → `PaymentPage`
 
-- Clean, responsive design
-- Intuitive navigation
-- Accessible color scheme and fonts
-- Mobile-friendly layouts
+Programmatic navigation:
+- `Cart.js` uses `useNavigate` to go to `/payment` when checking out.
+- `ProductDetails.js` has a Buy Now button; wiring can navigate to `/payment` with current selection (see “Buy Now flow”).
 
-## Authentication
+## Global State and Data Flow
 
-- User login/signup via Firebase
-- Session ID stored in localStorage
-- Authenticated users’ data synced with Firebase
+State layer is provided by `StateProvider.js` using React Context + `useReducer` with the reducer in `reducer.js`.
 
-## Payment Gateway Integration
+Initial state:
+```js
+{
+  cart: [],
+  user: null,
+  search: { query: "", isActive: false }
+}
+```
 
-- Razorpay integrated on `/payment` route
-- After cart checkout or "Buy Now", redirect to `/payment`
-- Payment page receives user session, cart, and product details
-- On successful payment, order stored in localStorage and Firebase
+Selectors and helpers:
+- `getCartTotal(cart)` → number (sum of price × quantity)
+- `getShippingCost(total)` → 0 when total ≥ 1500, else 100
 
-## Local Storage Usage
+Actions:
+- `SET_USER` – set authenticated user (or null)
+- `SET_SEARCH_QUERY`, `CLEAR_SEARCH` – search state
+- `ADD_TO_CART` – add item or increase quantity
+- `REMOVE_FROM_CART` – remove item by id
+- `UPDATE_QUANTITY` – change item quantity
+- `EMPTY_CART` – clear cart
 
-- User session ID
-- Cart details
-- Order history
-- Data loaded from localStorage on app start
-- Data synced to Firebase for authenticated users
+Cart item shape:
+```ts
+{
+  id: string;
+  title: string;
+  image: string;      // main image URL
+  price: number;      // current price
+  mrp: number;        // list price
+  quantity: number;   // integer ≥ 1
+}
+```
 
-## Running the Project
+## Authentication (Firebase)
 
-1. Install dependencies: `npm install`
-2. Start development server: `npm start`
-3. Open in browser: `"$BROWSER" http://localhost:3000`
-4. For production build: `npm run build`
+`src/Components/firebase.js` initializes Firebase app/auth/firestore using the current config. `App.js` subscribes to `onAuthStateChanged` and dispatches `SET_USER` to global state. Display name falls back to email username.
 
-## Contribution
+Note: For production, keep Firebase keys in environment variables and follow Firebase security rules for Firestore.
 
-- Fork and clone repo
-- Create feature branches
-- Submit pull requests
+## Local Storage Persistence
 
-## Planned Enhancements
+Helper file: `src/utils/localStorage.js`
+- `saveToLocalStorage(key, value)`
+- `loadFromLocalStorage(key, defaultValue)`
+- `removeFromLocalStorage(key)`
 
-- Advanced search and filtering
-- User profile management
-- Order tracking
-- Admin dashboard
+Keys used by the app:
+- `user` – authenticated user snapshot used by UI (non-sensitive)
+- `cart` – array of cart items (as above)
+- `orders` – array of placed orders
+
+Loading at startup (see `App.js` local state):
+- `user = loadFromLocalStorage('user')`
+- `cart = loadFromLocalStorage('cart', { items: [], total: 0 })` (for `PaymentPage` convenience)
+- `orders = loadFromLocalStorage('orders', [])`
+
+Saving:
+- Cart component saves `cart` on changes.
+- `PaymentPage` appends to `orders` after a successful Razorpay handler callback.
+
+## Products and UI
+
+- `ProductDetails.js` handles media browsing (images/videos), accessible navigation, quantity controls, add to cart, and notifications.
+- `Explore.js` lists products with filtering/search (via global search state).
+- `Header.js` hosts navigation, search box, and cart indicator.
+
+## Payment Gateway (Razorpay)
+
+Entry: `src/pages/PaymentPage.jsx`
+
+Key behaviors:
+- Loads Razorpay checkout script: `https://checkout.razorpay.com/v1/checkout.js`
+- Reads `user` and `cart` from props or localStorage
+- Uses `options` with a test key (replace with your key)
+- Amount is computed as `cart.total * 100` (paise). Ensure `cart.total` reflects subtotal + shipping before navigating to payment (Cart already computes this locally). If not present, compute on PaymentPage using reducer helpers.
+- On success (`handler`), appends a record to `localStorage.orders`:
+  ```js
+  {
+    orderId: response.razorpay_payment_id,
+    cart,
+    user,
+    date: new Date().toISOString()
+  }
+  ```
+
+Buy Now flow:
+- `ProductDetails.js` has a Buy Now button. To route directly with a single-item cart, navigate to `/payment` after preparing a temporary cart object in localStorage:
+  ```js
+  // Example snippet
+  saveToLocalStorage('cart', { items: [{ id, title, image, price, mrp, quantity }], total: price * quantity });
+  navigate('/payment');
+  ```
+
+Production note:
+- For real payments, create orders server‑side with Razorpay Orders API and verify signatures on your backend. The current implementation is client-only for demos.
+
+## Notifications
+
+`NotificationSystem.js/.css` provides a simple API to display transient UI notifications (e.g., “Added to cart”), used by `ProductDetails`.
+
+## Build, Run, Test
+
+Scripts (`package.json`):
+- `npm start` – start CRA dev server
+- `npm run build` – production build to `/build`
+- `npm test` – run tests (Jest + Testing Library)
+
+Quick start:
+1) Install deps: `npm install`
+2) Start dev server: `npm start`
+3) Open app: `http://localhost:3000`
+
+## Deployment (Firebase Hosting)
+
+`firebase.json`:
+- Serves `/build`
+- SPA rewrites: all routes to `/index.html`
+
+Typical flow:
+1) `npm run build`
+2) `firebase deploy` (requires Firebase CLI and project setup)
+
+## Security and Privacy
+
+- Do not store sensitive data (tokens, PII beyond display name/email) in localStorage.
+- Use HTTPS only in production.
+- Implement backend order creation and signature verification before going live.
+
+## Known Gaps and Next Steps
+
+- Wire Buy Now to navigate and create a single‑item temporary cart.
+- Optional: compute totals on PaymentPage from `reducer.js` helpers to avoid reliance on `cart.total` shape.
+- Add backend for Razorpay Orders and webhook signature verification.
+- Persist user/cart to Firestore for authenticated users (optional sync layer).
+- Add unit tests for reducer actions and cart math.
+
+## Contributing
+
+1) Fork and clone the repo
+2) Create a feature branch
+3) Run and verify changes locally
+4) Open a Pull Request with a clear description and screenshots where applicable
 
 ---
-
-For any questions or contributions, refer to this documentation or contact the maintainer.
+Maintainers welcome issues and PRs that improve robustness, accessibility, and checkout security.

@@ -20,6 +20,7 @@ import Home from "./Components/Home";
 import Cart from "./Components/Cart";
 import { onAuthStateChanged } from "firebase/auth";
 import { loadFromLocalStorage, saveToLocalStorage } from './utils/localStorage';
+import PaymentPage from './pages/PaymentPage';
 
 // This component uses useLocation hook inside Router context
 function AppRoutes() {
@@ -69,6 +70,7 @@ function AppRoutes() {
             </>
           }
         />
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
 
       {/* Show the modal when a background page is available */}
