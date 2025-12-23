@@ -1,5 +1,7 @@
 # Kartigo
 
+NOTE: This version do not use database.
+
 Kartigo is a modern e-commerce web application built with React. It allows users to browse, search, and manage products with a user-friendly interface inspired by real-world e-commerce giants.
 
 ![React](https://img.shields.io/badge/React-18.x-blue?logo=react)
